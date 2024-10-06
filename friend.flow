@@ -69,7 +69,7 @@ void AI_OMAKASE()
         return;
     }
 
-    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() && !AI_CHK_PLAYER_ID( 273 ) && !AI_CHK_PLAYER_ID( 282 ) && !AI_CHK_PLAYER_ID( 283 ) && !AI_CHK_PLAYER_ID( 284 ) && !AI_CHK_PLAYER_ID( 285 ) && !AI_CHK_PLAYER_ID( 286 ) && !AI_CHK_PLAYER_ID( 287 ) && !AI_CHK_PLAYER_ID( 288 ) && !AI_CHK_PLAYER_ID( 289 ) && !AI_CHK_PLAYER_ID( 290 ) && !AI_CHK_PLAYER_ID( 291 ) && !AI_CHK_PLAYER_ID( 292 )  )
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() && !AI_CHK_PLAYER_ID( 273 ) && !AI_CHK_PLAYER_ID( 282 ) && !AI_CHK_PLAYER_ID( 283 ) && !AI_CHK_PLAYER_ID( 284 ) && !AI_CHK_PLAYER_ID( 285 ) && !AI_CHK_PLAYER_ID( 286 ) && !AI_CHK_PLAYER_ID( 287 ) && !AI_CHK_PLAYER_ID( 288 ) && !AI_CHK_PLAYER_ID( 289 ) && !AI_CHK_PLAYER_ID( 290 ) && !AI_CHK_PLAYER_ID( 291 ) && !AI_CHK_PLAYER_ID( 292 ) && !AI_CHK_PLAYER_ID( 293 ) )
     {
         var20 = AI_FUNCTION_007C();
         var16 = AI_FUNCTION_0090();
@@ -415,7 +415,7 @@ void AI_OMAKASE()
     if ( ( ( AI_FUNCTION_0009( 1 ) && ( var2 >= 1 ) ) || ( AI_FUNCTION_0009( 3 ) && ( var2 >= 2 ) ) ) || ( AI_FUNCTION_0009( 5 ) && ( var2 >= 3 ) ) )
     {
         
-        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) && AI_FUNCTION_0012() )
         {
             var10 = 50;
         }
@@ -449,7 +449,7 @@ void AI_OMAKASE()
     if ( ( AI_FUNCTION_0008( 2 ) && ( var5 >= 1 ) ) || ( AI_FUNCTION_0008( 4 ) && ( var5 >= 2 ) ) )
     {
         
-        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) && AI_FUNCTION_0012() )
         {
             var10 = 50;
         }
@@ -2549,7 +2549,7 @@ void AI_TAIRYOKU()
         return;
     }
 
-    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() && !AI_CHK_PLAYER_ID( 273 ) && !AI_CHK_PLAYER_ID( 282 ) && !AI_CHK_PLAYER_ID( 283 ) && !AI_CHK_PLAYER_ID( 284 ) && !AI_CHK_PLAYER_ID( 285 ) && !AI_CHK_PLAYER_ID( 286 ) && !AI_CHK_PLAYER_ID( 287 ) && !AI_CHK_PLAYER_ID( 288 ) && !AI_CHK_PLAYER_ID( 289 ) && !AI_CHK_PLAYER_ID( 290 ) && !AI_CHK_PLAYER_ID( 291 ) && !AI_CHK_PLAYER_ID( 292 )  )
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() && !AI_CHK_PLAYER_ID( 273 ) && !AI_CHK_PLAYER_ID( 282 ) && !AI_CHK_PLAYER_ID( 283 ) && !AI_CHK_PLAYER_ID( 284 ) && !AI_CHK_PLAYER_ID( 285 ) && !AI_CHK_PLAYER_ID( 286 ) && !AI_CHK_PLAYER_ID( 287 ) && !AI_CHK_PLAYER_ID( 288 ) && !AI_CHK_PLAYER_ID( 289 ) && !AI_CHK_PLAYER_ID( 290 ) && !AI_CHK_PLAYER_ID( 291 ) && !AI_CHK_PLAYER_ID( 292 ) && !AI_CHK_PLAYER_ID( 293 ) )
     {
         var51 = AI_FUNCTION_007C();
         var42 = AI_FUNCTION_0090();
@@ -2767,7 +2767,7 @@ void AI_TAIRYOKU()
 
     var47 = AI_RND( 100 );
 
-    if ( ( var47 <= var49 ) || AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 )
+    if ( ( var47 <= var49 ) || AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 || AI_CHK_PLAYER_ID( 193 ) )
     {
         var53 = 0;
 
@@ -2868,7 +2868,7 @@ void AI_TAIRYOKU()
 
     var47 = AI_RND( 100 );
 
-    if ( ( var47 <= var49 ) || AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 )
+    if ( ( var47 <= var49 ) || AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 || AI_CHK_PLAYER_ID( 193 ) )
     {
 
         var58 = 0;
@@ -3148,7 +3148,7 @@ void AI_TAIRYOKU()
     if ( ( AI_FUNCTION_0008( 2 ) && ( var43 >= 1 ) ) || ( AI_FUNCTION_0008( 4 ) && ( var43 >= 1 ) ) )
     {
         
-        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 || !AI_FUNCTION_0012() ) )
         {
             var49 = 100;
         }
@@ -3241,7 +3241,7 @@ void AI_TAIRYOKU()
     {
         var51 = AI_FUNCTION_00E2( 3 );
         
-        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 3 ) || AI_FUNCTION_00E3( 5, 3 ) || AI_FUNCTION_00E3( 10, 3 ) ) && AI_FUNCTION_006C( 229 ) && AI_FUNCTION_00BF( SpecialEffects.FireBreak ) == 0 )
+        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 3 ) || AI_FUNCTION_00E3( 10, 3 ) ) && AI_FUNCTION_006C( 229 ) && AI_FUNCTION_00BF( SpecialEffects.FireBreak ) == 0 )
         {
             AI_ACT_SKILL( BattleSkill.FireBreak );
             AI_FUNCTION_007A( var51 );
@@ -3250,7 +3250,7 @@ void AI_TAIRYOKU()
 
         var51 = AI_FUNCTION_00E2( 4 );
         
-        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 4 ) || AI_FUNCTION_00E3( 4, 4 ) ) && AI_FUNCTION_006C( 230 ) && AI_FUNCTION_00BF( SpecialEffects.IceBreak ) == 0 )
+        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 4 ) ) && AI_FUNCTION_006C( 230 ) && AI_FUNCTION_00BF( SpecialEffects.IceBreak ) == 0 )
         {
             AI_ACT_SKILL( BattleSkill.IceBreak );
             AI_FUNCTION_007A( var51 );
@@ -3259,7 +3259,7 @@ void AI_TAIRYOKU()
 
         var51 = AI_FUNCTION_00E2( 6 );
         
-        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 6 ) || AI_FUNCTION_00E3( 2, 6 ) ) && AI_FUNCTION_006C( 231 ) && AI_FUNCTION_00BF( SpecialEffects.WindBreak ) == 0 )
+        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 6 ) ) && AI_FUNCTION_006C( 231 ) && AI_FUNCTION_00BF( SpecialEffects.WindBreak ) == 0 )
         {
             AI_ACT_SKILL( BattleSkill.WindBreak );
             AI_FUNCTION_007A( var51 );
@@ -3268,7 +3268,7 @@ void AI_TAIRYOKU()
 
         // var51 = AI_FUNCTION_00E2( 5 );
         
-        // if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 5 ) || AI_FUNCTION_00E3( 7, 5 ) || AI_FUNCTION_00E3( 8, 5 ) ) && AI_FUNCTION_006C( 232 ) && AI_FUNCTION_00BF( SpecialEffects.ElecBreak ) == 0 )
+        // if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 5 ) || AI_FUNCTION_00E3( 8, 5 ) ) && AI_FUNCTION_006C( 232 ) && AI_FUNCTION_00BF( SpecialEffects.ElecBreak ) == 0 )
         // {
         //     AI_ACT_SKILL( BattleSkill.ElecBreak );
         //     AI_FUNCTION_007A( var51 );
