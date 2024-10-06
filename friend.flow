@@ -1,0 +1,4283 @@
+
+// 
+// FlowScript decompiled using Atlus Script Tools by TGE (2017-2021)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+
+// 
+// Imports
+// 
+
+import( "AICALC(16).BF.msg" );
+
+// 
+// Procedure declarations
+// 
+
+// Procedure Index: 0
+void main_AI_escape()
+{
+    
+    if ( AI_FUNCTION_0012() == 1 )
+    {
+        AI_FUNCTION_003F();
+        AI_TAR_RND();
+        return;
+    }
+
+}
+
+// Procedure Index: 1
+void AI_OMAKASE()
+{
+    int var20;
+    int var16;
+    int var6;
+    int var15;
+    int var13;
+    int var19;
+    int var7;
+    int var1;
+    int var9;
+    int var10;
+    int var18;
+    int var12;
+    int var8;
+    int var11;
+    int var2;
+    int var5;
+    int var3;
+    int var4;
+    int var0;
+    int var21;
+    int var17;
+
+    if ( AI_CHK_PLAYER_ID( 203 ) || AI_CHK_PLAYER_ID( 204 ) || AI_CHK_PLAYER_ID( 205 ) )
+    {
+        POWERDOOR_HP();
+        return;
+    }
+    else if ( AI_CHK_PLAYER_ID( 206 ) || AI_CHK_PLAYER_ID( 207 ) || AI_CHK_PLAYER_ID( 208 ) )
+    {
+        ENDURANCEDOOR_HP();
+        return;
+    }
+    else if ( AI_CHK_PLAYER_ID( 325 ) || AI_CHK_PLAYER_ID( 326 ) || AI_CHK_PLAYER_ID( 327 ) )
+    {
+        AI_TAIRYOKU();
+        return;
+    }
+
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() && !AI_CHK_PLAYER_ID( 273 ) && !AI_CHK_PLAYER_ID( 282 ) && !AI_CHK_PLAYER_ID( 283 ) && !AI_CHK_PLAYER_ID( 284 ) && !AI_CHK_PLAYER_ID( 285 ) && !AI_CHK_PLAYER_ID( 286 ) && !AI_CHK_PLAYER_ID( 287 ) && !AI_CHK_PLAYER_ID( 288 ) && !AI_CHK_PLAYER_ID( 289 ) && !AI_CHK_PLAYER_ID( 290 ) && !AI_CHK_PLAYER_ID( 291 ) && !AI_CHK_PLAYER_ID( 292 )  )
+    {
+        var20 = AI_FUNCTION_007C();
+        var16 = AI_FUNCTION_0090();
+        
+        if ( ( AI_FUNCTION_009D( var20, var16 ) == 1 ) && ( AI_FUNCTION_0077( var20 ) ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_007A( var20 );
+            return;
+        }
+    }
+
+    var16 = AI_FUNCTION_0090();
+    var20 = AI_FUNCTION_0081( var16 );
+
+    if ( var20 != -1 )
+    {
+        AI_ACT_WEAPON();
+        AI_FUNCTION_007A( var20 );
+        return;
+    }
+
+    for ( int i = 0; i < 3; i++ )
+    {
+        if ( AI_FUNCTION_006E( i ) && ( ( AI_CHK_HP_PERCENT( 35 ) == 0 ) && AI_FUNCTION_0070( i ) ) )
+        {
+            var20 = AI_FUNCTION_0081( i );
+            
+            if ( var20 != -1)
+            {
+                var19 = AI_FUNCTION_0086( var20, i, 1 );
+                AI_ACT_SKILL( var19 );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+        }
+    }   
+    
+    for ( int i = 3; i < 7; i++ )
+    {
+        if ( AI_FUNCTION_006E( i ) && AI_FUNCTION_0070( i ) )
+        {
+            var20 = AI_FUNCTION_0081( i );
+            
+            if ( var20 != -1)
+            {
+                var19 = AI_FUNCTION_0086( var20, i, 1 );
+                AI_ACT_SKILL( var19 );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+        }
+    }   
+
+    if ( ( AI_FUNCTION_006E( 8 ) ) && ( AI_FUNCTION_0070( 8 ) ) )
+    {
+        var20 = AI_FUNCTION_0081( 8 );
+        
+        if ( var20 != -1 )
+        {
+            if ( AI_FUNCTION_006C ( BattleSkill.Hamaon ) )
+            {
+                var19 = BattleSkill.Hamaon;
+            }
+            else if ( AI_FUNCTION_006C ( BattleSkill.Hama ) )
+            {
+                var19 = BattleSkill.Hama;
+            }
+            AI_ACT_SKILL( var19 );
+            AI_FUNCTION_007A( var20 );
+            return;
+        }
+    }
+
+    if ( ( AI_FUNCTION_006E( 9 ) ) && ( AI_FUNCTION_0070( 9 ) ) )
+    {
+        var20 = AI_FUNCTION_0081( 9 );
+        
+        if ( var20 != -1 )
+        {
+            if ( AI_FUNCTION_006C ( BattleSkill.Mudoon ) )
+            {
+                var19 = BattleSkill.Mudoon;
+            }
+            else if ( AI_FUNCTION_006C ( BattleSkill.Mudo ) )
+            {
+                var19 = BattleSkill.Mudo;
+            }
+            AI_ACT_SKILL( var19 );
+            AI_FUNCTION_007A( var20 );
+            return;
+        }
+    }
+
+    var13 = AI_FUNCTION_00A0( 1, 40, 0 );
+    var2 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+
+    if ( AI_FUNCTION_0075( var2, 40 ) == 1 )
+    {
+        var13 = var2;
+    }
+    
+    if ( var13 != -1 )
+    {
+    
+        if ( AI_FUNCTION_0078( var13, 17 ) == 1 )
+        {
+            var20 = AI_FUNCTION_00DC( 60 );
+            
+            if ( var20 >= 2 )
+            {
+                var15 = AI_FUNCTION_0086( var13, 17, 0 );
+            }
+            else 
+            {
+                var15 = AI_FUNCTION_0086( var13, 17, 1 );
+            }
+
+            AI_ACT_SKILL( var15 );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.MedicalPowder ) > 1 )
+        {
+            var15 = Items.MedicalPowder;
+            AI_FUNCTION_0068( var15 );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+    }
+
+    var13 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Fear );
+
+    if ( var13 != -1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Fear ) )
+        {
+            var13 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        if ( AI_FUNCTION_0078( var13, 17 ) == 1  )
+        {
+            var15 = AI_FUNCTION_0086( var13, 17, 1);
+            AI_ACT_SKILL( var15 );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.PatraGem ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.PatraGem );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+    }
+
+    var13 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Charm );
+
+    if ( var13 != -1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Charm ) )
+        {
+            var13 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        if ( AI_FUNCTION_006C( BattleSkill.Charmdi ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Charmdi );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.DisCharm ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.DisCharm );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+    }
+
+    var13 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+
+    if ( var13 != -1 )
+    {
+        if ( AI_FUNCTION_0078( var13, 17 ) == 1 )
+        {
+            var15 = AI_FUNCTION_0086( var13, 17, 1 );
+            AI_ACT_SKILL( var15 );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.RevivalBead ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.RevivalBead );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+    }
+
+    var13 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Rage );
+
+    if ( var13 != -1 && GET_ITEM_NUM( Items.DisRage ) > 1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Rage ) )
+        {
+            var13 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        AI_FUNCTION_0068( Items.DisRage );
+        AI_FUNCTION_007A( var13 );
+        return;
+    }
+
+    var13 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Panic );
+
+    if ( var13 != -1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Panic ) )
+        {
+            var13 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        if ( AI_FUNCTION_0078( var13, 17 ) == 1 )
+        {
+            var15 = AI_FUNCTION_0086( var13, 17, 1 );
+            AI_ACT_SKILL( var15 );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.PatraGem ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.PatraGem );
+            AI_FUNCTION_007A( var13 );
+            return;
+        }
+    }
+
+    var7 = AI_FUNCTION_00DD();
+    var1 = AI_FUNCTION_00DE();
+    var9 = ( var7 - var1 );
+    
+    if ( var9 <= -8 )
+    {
+        var10 = 50;
+    }
+    else if ( var9 <= -3 )
+    {
+        var10 = 30;
+    }
+    else if ( var9 <= 0 )
+    {
+        var10 = 20;
+    }
+    else if ( var9 <= 3 )
+    {
+        var10 = 10;
+    }
+    else 
+    {
+        var10 = 0;
+    }
+
+    var18 = AI_RND( 100 );
+    var6 = AI_FUNCTION_007B( 0, 1 );
+    
+    if ( ( ( ( var18 <= var10 ) && AI_FUNCTION_005D( 1, 0x00100000 ) ) && AI_FUNCTION_005D( 1, 1 ) ) && AI_FUNCTION_006C( 201 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.RePatra );
+        AI_FUNCTION_007A( var6 );
+        return;
+    }
+
+    var7 = AI_FUNCTION_00DD();
+    var1 = AI_FUNCTION_00DE();
+    var9 = ( var7 - var1 );
+    
+    if ( var9 <= -8 )
+    {
+        var10 = 40;
+    }
+    else if ( var9 <= -3 )
+    {
+        var10 = 30;
+    }
+    else if ( var9 <= 0 )
+    {
+        var10 = 10;
+    }
+    else if ( var9 <= 3 )
+    {
+        var10 = 0;
+    }
+    else 
+    {
+        var10 = 0;
+    }
+
+    var18 = AI_RND( 100 );
+
+    if ( ( var18 <= var10 ) && AI_FUNCTION_006C( BattleSkill.RePatra ) && AI_FUNCTION_000B( StatusEffects.Downed ) )
+    {
+        if ( AI_FUNCTION_005D( 2, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 2 );
+        }
+        else if ( AI_FUNCTION_005D( 3, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 3 );
+        }
+        else if ( AI_FUNCTION_005D( 4, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 4 );
+        }
+        else if ( AI_FUNCTION_005D( 5, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 5 );
+        }
+        else if ( AI_FUNCTION_005D( 7, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 7 );
+        }
+        else if ( AI_FUNCTION_005D( 8, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 8 );
+        }
+        else if ( AI_FUNCTION_005D( 9, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 9 );
+        }
+        else if ( AI_FUNCTION_005D( 10, StatusEffects.Downed ) )
+        {
+            var20 = AI_FUNCTION_007B( 0, 10 );
+        }
+
+        AI_ACT_SKILL( BattleSkill.RePatra );
+        AI_FUNCTION_007A( var20 );
+        return;
+    }
+
+    var12 = AI_FUNCTION_00BF( 1 );
+    var8 = AI_FUNCTION_00BF( 0x40 );
+    var11 = AI_FUNCTION_00BF( 0x10 );
+    var2 = ( ( var12 + var8 ) + var11 );
+    
+    if ( ( ( AI_FUNCTION_0009( 1 ) && ( var2 >= 1 ) ) || ( AI_FUNCTION_0009( 3 ) && ( var2 >= 2 ) ) ) || ( AI_FUNCTION_0009( 5 ) && ( var2 >= 3 ) ) )
+    {
+        
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        {
+            var10 = 50;
+        }
+        else 
+        {
+            var10 = 100;
+        }
+
+        var18 = AI_RND( 100 );
+        
+        if ( ( var18 <= var10 ) && AI_FUNCTION_006C( 223 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Dekaja );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    var12 = AI_FUNCTION_00BC( 2 );
+    var8 = AI_FUNCTION_00BC( 0x80 );
+    var11 = AI_FUNCTION_00BC( 0x20 );
+    var5 = ( ( var12 + var8 ) + var11 );
+    var12 = AI_FUNCTION_00BC( 0x00040000 );
+    var8 = AI_FUNCTION_00BC( 0x00080000 );
+    var11 = AI_FUNCTION_00BC( 0x00100000 );
+    var5 = ( ( ( var5 + var12 ) + var8 ) + var11 );
+    var12 = AI_FUNCTION_00BC( 0x00200000 );
+    var5 = ( var5 + var12 );
+    
+    if ( ( AI_FUNCTION_0008( 2 ) && ( var5 >= 1 ) ) || ( AI_FUNCTION_0008( 4 ) && ( var5 >= 2 ) ) )
+    {
+        
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        {
+            var10 = 50;
+        }
+        else 
+        {
+            var10 = 100;
+        }
+
+        var18 = AI_RND( 100 );
+        
+        if ( ( var18 <= var10 ) && AI_FUNCTION_006C( 212 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Dekunda );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    var16 = AI_FUNCTION_0090();
+
+    if ( ( AI_FUNCTION_00C4() == 0 && AI_FUNCTION_0012() == 1 ) && !AI_CHK_PLAYER_ID( 193 ) )
+    {
+        var20 = AI_FUNCTION_0084( var16 );
+
+        if ( var20 != -1 && var16 <= 2 )
+        {
+            if ( AI_CHK_HP_PERCENT( 35 ) || AI_FUNCTION_0077( var20 ) )
+            {
+                AI_ACT_WEAPON();
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+        }
+
+        for ( int i = 0; i < 3; i++)
+        {
+            var20 = AI_FUNCTION_0084( i );
+
+            if ( var20 != -1 && ( AI_CHK_HP_PERCENT( 35 ) == 0 ) && AI_FUNCTION_0070( i ) )
+            {
+                var19 = AI_FUNCTION_0086( var20, i, 1 );
+                AI_ACT_SKILL( var19 );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+        }  
+    }
+
+    if ( AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 )
+    {
+        var3 = 50;
+    }
+    else if ( AI_FUNCTION_00BB( 8 ) )
+    {
+        var3 = 50;
+    }
+    else if ( AI_FUNCTION_00BB( 1 ) )
+    {
+        var3 = 30;
+    }
+    else 
+    {
+        var3 = -1;
+    }
+
+    var18 = AI_RND( 100 );
+    
+    if ( ( var18 <= var3 ) )
+    {
+        if ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 && AI_FUNCTION_006C( 221 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.MindCharge );
+            AI_MINE();
+            return;
+        }
+        else if ( BUFF_SELF_CHECK( SpecialEffects.PowerCharge ) == 0 && AI_FUNCTION_006C( 220 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.PowerCharge );
+            AI_MINE();
+            return;
+        }
+    }
+
+    if ( AI_FUNCTION_0001( 25 ) && AI_FUNCTION_006C( 76 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.SpiritDrain );
+        AI_FUNCTION_002F();
+        return;
+    }
+
+    var20 = AI_FUNCTION_007C();
+    
+    if ( AI_FUNCTION_0009( 1 ) == 1 )
+    {
+        var19 = AI_FUNCTION_0088( var20, 1, 0 );
+    }
+    else 
+    {
+        var19 = AI_FUNCTION_0088( var20, 0, 0 );
+    }
+
+    if ( var19 == 0 && AI_FUNCTION_0009( 1 ) )
+    {
+        var19 = AI_FUNCTION_0088( var20, -1, 0 );
+    }
+
+    if ( !AI_FUNCTION_00B6() )
+    {
+        if ( var19 != -1 )
+        {
+            var21 = AI_FUNCTION_00DF( var19 );
+            
+            if ( ( ( ( var21 == 0 ) || ( var21 == 1 ) ) || ( var21 == 2 ) ) && AI_CHK_HP_PERCENT( 35 ) )
+            {
+                
+                if ( AI_FUNCTION_0009( 1 ) == 1 )
+                {
+                    var19 = AI_FUNCTION_0088( var20, 1, 1 );
+                }
+                else 
+                {
+                    var19 = AI_FUNCTION_0088( var20, 0, 1 );
+                }
+
+                
+                if ( var19 == -1 )
+                {
+                    var16 = AI_FUNCTION_0090();
+                    
+                    if ( AI_FUNCTION_009D( var20, var16 ) )
+                    {
+                        AI_ACT_WEAPON();
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+                    else 
+                    {
+                        var20 = AI_FUNCTION_0083( var16 );
+                        
+                        if ( var20 != -1 )
+                        {
+                            AI_ACT_WEAPON();
+                            AI_FUNCTION_007A( var20 );
+                            return;
+                        }
+                        else if ( ( AI_FUNCTION_0072( 8 ) && AI_FUNCTION_0070( 8 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+                        {
+                            
+                            if ( ( AI_FUNCTION_001A( 8 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+                            {
+                                
+                                if ( AI_FUNCTION_006C( 48 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Mahamaon );
+                                    AI_TAR_RND();
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 46 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Mahama );
+                                    AI_TAR_RND();
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 47 ) )
+                                {
+                                    var20 = AI_FUNCTION_00E0( 8 );
+                                    AI_ACT_SKILL( BattleSkill.Hamaon );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 45 ) )
+                                {
+                                    var20 = AI_FUNCTION_00E0( 8 );
+                                    AI_ACT_SKILL( BattleSkill.Hama );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+
+                            }
+                            else 
+                            {
+                                var20 = AI_FUNCTION_00E0( 8 );
+                                
+                                if ( AI_FUNCTION_006C( 47 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Hamaon );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 45 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Hama );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+
+                            }
+
+                        }
+                        else if ( ( AI_FUNCTION_0072( 9 ) && AI_FUNCTION_0070( 9 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+                        {
+                            
+                            if ( ( AI_FUNCTION_001A( 9 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+                            {
+                                
+                                if ( AI_FUNCTION_006C( 54 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Mamudoon );
+                                    AI_TAR_RND();
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 52 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Mamudo );
+                                    AI_TAR_RND();
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 53 ) )
+                                {
+                                    var20 = AI_FUNCTION_00E0( 9 );
+                                    AI_ACT_SKILL( BattleSkill.Mudoon );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 51 ) )
+                                {
+                                    var20 = AI_FUNCTION_00E0( 9 );
+                                    AI_ACT_SKILL( BattleSkill.Mudo );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+
+                            }
+                            else 
+                            {
+                                var20 = AI_FUNCTION_00E0( 9 );
+                                
+                                if ( AI_FUNCTION_006C( 53 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Mudoon );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+                                else if ( AI_FUNCTION_006C( 51 ) )
+                                {
+                                    AI_ACT_SKILL( BattleSkill.Mudo );
+                                    AI_FUNCTION_007A( var20 );
+                                    return;
+                                }
+
+                            }
+
+                        }
+
+                        AI_ACT_WAIT();
+                        AI_TAR_RND();
+                        return;
+                    }
+
+                }
+                else 
+                {
+                    var21 = AI_FUNCTION_00DF( var19 );
+                    var17 = AI_FUNCTION_00E2( var21 );
+                    
+                    if ( var17 != -1 )
+                    {
+                        var19 = AI_FUNCTION_0088( var20, 1, 1 );
+                        AI_ACT_SKILL( var19 );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+                    else 
+                    {
+                        AI_ACT_SKILL( var19 );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+
+                }
+
+            }
+            else 
+            {
+                var17 = AI_FUNCTION_00E2( var21 );
+                
+                if ( ( var17 != -1 ) /* || ( AI_FUNCTION_0009( 1 ) == 1 ) */ )
+                {
+                    var19 = AI_FUNCTION_0088( var20, 1, 0 );
+                    AI_ACT_SKILL( var19 );
+                    AI_FUNCTION_007A( var20 );
+                    return;
+                }
+                else 
+                {
+                    AI_ACT_SKILL( var19 );
+                    AI_FUNCTION_007A( var20 );
+                    return;
+                }
+
+            }
+
+        }
+        else
+        {
+            var16 = AI_FUNCTION_0090();
+            var20 = AI_FUNCTION_0083( var16 );
+            
+            if ( var20 != -1 )
+            {
+                AI_ACT_WEAPON();
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+            else if ( ( AI_FUNCTION_0072( 8 ) && AI_FUNCTION_0070( 8 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+            {
+                
+                if ( ( AI_FUNCTION_001A( 8 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+                {
+                    
+                    if ( AI_FUNCTION_006C( 48 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Mahamaon );
+                        AI_TAR_RND();
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 46 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Mahama );
+                        AI_TAR_RND();
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 47 ) )
+                    {
+                        var20 = AI_FUNCTION_00E0( 8 );
+                        AI_ACT_SKILL( BattleSkill.Hamaon );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 45 ) )
+                    {
+                        var20 = AI_FUNCTION_00E0( 8 );
+                        AI_ACT_SKILL( BattleSkill.Hama );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+
+                }
+                else 
+                {
+                    var20 = AI_FUNCTION_00E0( 8 );
+                    
+                    if ( AI_FUNCTION_006C( 47 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Hamaon );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 45 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Hama );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+
+                }
+
+            }
+            else if ( ( AI_FUNCTION_0072( 9 ) && AI_FUNCTION_0070( 9 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+            {
+                
+                if ( ( AI_FUNCTION_001A( 9 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+                {
+                    
+                    if ( AI_FUNCTION_006C( 54 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Mamudoon );
+                        AI_TAR_RND();
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 52 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Mamudo );
+                        AI_TAR_RND();
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 53 ) )
+                    {
+                        var20 = AI_FUNCTION_00E0( 9 );
+                        AI_ACT_SKILL( BattleSkill.Mudoon );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 51 ) )
+                    {
+                        var20 = AI_FUNCTION_00E0( 9 );
+                        AI_ACT_SKILL( BattleSkill.Mudo );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+
+                }
+                else 
+                {
+                    var20 = AI_FUNCTION_00E0( 9 );
+                    
+                    if ( AI_FUNCTION_006C( 53 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Mudoon );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+                    else if ( AI_FUNCTION_006C( 51 ) )
+                    {
+                        AI_ACT_SKILL( BattleSkill.Mudo );
+                        AI_FUNCTION_007A( var20 );
+                        return;
+                    }
+
+                }
+
+            }
+
+        }
+    }
+    
+    if ( AI_FUNCTION_0009( 2 ) )
+    {
+        var3 = 10;
+    }
+    else if ( AI_FUNCTION_0009( 3 ) )
+    {
+        var3 = 20;
+    }
+    else if ( AI_FUNCTION_0009( 4 ) )
+    {
+        var3 = 30;
+    }
+    else 
+    {
+        var3 = 40;
+    }
+
+    
+    if ( AI_FUNCTION_00BB( 1 ) )
+    {
+        var4 = 10;
+    }
+    else if ( AI_FUNCTION_00BB( 3 ) )
+    {
+        var4 = 20;
+    }
+    else 
+    {
+        var4 = 30;
+    }
+
+    var0 = ( var3 + var4 );
+    var20 = AI_FUNCTION_008D( 8 );
+    var18 = AI_RND( 100 );
+    
+    if ( ( ( AI_FUNCTION_00C4() == 0 ) && ( var18 <= var0 ) ) && ( var20 != -1 ) )
+    {
+        
+        if ( ( AI_FUNCTION_001A( 8 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+        {
+            
+            if ( AI_FUNCTION_006C( 48 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mahamaon );
+                AI_TAR_RND();
+                return;
+            }
+            else if ( AI_FUNCTION_006C( 46 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mahama );
+                AI_TAR_RND();
+                return;
+            }
+
+        }
+        else 
+        {
+            var20 = AI_FUNCTION_00E0( 8 );
+            
+            if ( AI_FUNCTION_006C( 47 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Hamaon );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+            else if ( AI_FUNCTION_006C( 45 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Hama );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+
+        }
+
+    }
+
+    var20 = AI_FUNCTION_008D( 9 );
+    var18 = AI_RND( 100 );
+    
+    if ( ( ( AI_FUNCTION_00C4() == 0 ) && ( var18 <= var0 ) ) && ( var20 != -1 ) )
+    {
+        
+        if ( ( AI_FUNCTION_001A( 9 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+        {
+            
+            if ( AI_FUNCTION_006C( 54 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mamudoon );
+                AI_TAR_RND();
+                return;
+            }
+            else if ( AI_FUNCTION_006C( 52 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mamudo );
+                AI_TAR_RND();
+                return;
+            }
+
+        }
+        else 
+        {
+            var20 = AI_FUNCTION_00E0( 9 );
+            
+            if ( AI_FUNCTION_006C( 53 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mudoon );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+            else if ( AI_FUNCTION_006C( 51 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mudo );
+                AI_FUNCTION_007A( var20 );
+                return;
+            }
+
+        }
+
+    }
+
+    if ( DEBUFF_ENEMIES_CHECK( SpecialEffects.Tetrakarn ) )
+    {
+        if ( !AI_CHK_HP_PERCENT( 60 ) || AI_FUNCTION_0015( var16 ) || AI_FUNCTION_0016( var16 ) || AI_FUNCTION_0017( var16 ) || ( AI_FUNCTION_00FA( var16 ) && !AI_CHK_HP_PERCENT( 40 ) ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_00D3( SpecialEffects.Tetrakarn );
+            return;
+        }
+    }
+
+    if ( DEBUFF_ENEMIES_CHECK( SpecialEffects.Makarakarn ) )
+    {
+        for ( int i = 3; i < 7; i++ )
+        {
+            if ( AI_FUNCTION_0070( i ) && ( !AI_CHK_HP_PERCENT( 60 ) || AI_FUNCTION_0015( i ) || AI_FUNCTION_0016( i ) || AI_FUNCTION_0017( i ) || ( !AI_CHK_HP_PERCENT( 40 ) && AI_FUNCTION_00FA( i ) ) ) )
+            {
+                if ( AI_FUNCTION_00BF( SpecialEffects.Makarakarn ) > 1 )
+                {
+                    var1 = GET_Mgk( i, 0 );
+                }
+                else
+                {
+                    var1 = GET_Mgk( i, 1 );
+                }
+
+                if ( var1 > 0 )
+                {
+                    AI_ACT_SKILL( var1 );
+                    AI_FUNCTION_00D3( SpecialEffects.Makarakarn );
+                    return;
+                }
+            }
+        }
+    }
+
+    var7 = AI_FUNCTION_00DD();
+    var1 = AI_FUNCTION_00DE();
+    var9 = ( var7 - var1 );
+    
+    if ( var9 <= -8 )
+    {
+        var10 = 80;
+    }
+    else if ( var9 <= -3 )
+    {
+        var10 = 60;
+    }
+    else if ( var9 <= 0 )
+    {
+        var10 = 40;
+    }
+    else if ( var9 <= 3 )
+    {
+        var10 = 20;
+    }
+    else 
+    {
+        var10 = 0;
+    }
+
+    var18 = AI_RND( 100 );
+    
+    if ( var18 <= var10 || AI_FUNCTION_00C4() || !AI_FUNCTION_0012() )
+    {
+        var20 = AI_FUNCTION_00E2( 3 );
+        
+        if ( ( var20 != -1 ) && ( AI_FUNCTION_00E3( 1, 3 ) || AI_FUNCTION_00E3( 5, 3 ) || AI_FUNCTION_00E3( 10, 3 ) ) && AI_FUNCTION_006C( 229 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.FireBreak );
+            AI_FUNCTION_007A( var20 );
+            return;
+        }
+
+        var20 = AI_FUNCTION_00E2( 4 );
+        
+        if ( ( var20 != -1 ) && ( AI_FUNCTION_00E3( 1, 4 ) || AI_FUNCTION_00E3( 4, 4 ) ) && AI_FUNCTION_006C( 230 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.IceBreak );
+            AI_FUNCTION_007A( var20 );
+            return;
+        }
+
+        var20 = AI_FUNCTION_00E2( 6 );
+        
+        if ( ( var20 != -1 ) && ( AI_FUNCTION_00E3( 1, 6 ) || AI_FUNCTION_00E3( 2, 6 ) ) && AI_FUNCTION_006C( 231 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.WindBreak );
+            AI_FUNCTION_007A( var20 );
+            return;
+        }
+
+        // var20 = AI_FUNCTION_00E2( 5 );
+        
+        // if ( ( var20 != -1 ) && ( AI_FUNCTION_00E3( 1, 5 ) || AI_FUNCTION_00E3( 7, 5 ) || AI_FUNCTION_00E3( 8, 5 ) ) && AI_FUNCTION_006C( 232 ) )
+        // {
+        //     AI_ACT_SKILL( BattleSkill.ElecBreak );
+        //     AI_FUNCTION_007A( var20 );
+        //     return;
+        // }
+
+    }    
+
+    var13 = AI_FUNCTION_009B();
+    
+    if ( AI_FUNCTION_0075( var13, 80 ) == 1 && AI_FUNCTION_0078( var13, 17 ) == 1 )
+    {
+        var20 = AI_FUNCTION_00DC( 70 );
+        var21 = AI_FUNCTION_00DC( 80 );
+        
+        if ( var20 >= 2 || var21 >= 3)
+        {
+            var15 = AI_FUNCTION_0086( var13, 17, 0 );
+        }
+        else 
+        {
+            var15 = AI_FUNCTION_0086( var13, 17, 1 );
+        }
+
+        AI_ACT_SKILL( var15 );
+        AI_FUNCTION_007A( var13 );
+        return;
+    }
+
+    if ( !AI_FUNCTION_00C4() )
+    {
+        var7 = AI_FUNCTION_00DD();
+        var1 = AI_FUNCTION_00DE();
+        var9 = ( var7 - var1 );
+        BIT_OFF( 5440 );
+        
+        if ( ( ( AI_FUNCTION_006C( 57 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 60 ) ) && ( var9 <= 10 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 57 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 20 ) ) && ( var9 <= 7 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 57 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 10 ) ) && ( var9 <= 5 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 57 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 5 ) ) && ( var9 <= 4 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( AI_FUNCTION_006C( 57 ) && ( AI_FUNCTION_00C4() == 0 ) ) && ( var9 <= 3 ) )
+        {
+            BIT_ON( 5440 );
+        }
+
+        
+        if ( BIT_CHK( 5440 ) )
+        {
+            var20 = AI_FUNCTION_00EA( 10 );
+            
+            if ( var20 <= 0 )
+            {
+                var3 = 0;
+            }
+            else if ( var20 <= 2 )
+            {
+                var3 = 20;
+            }
+            else if ( var20 <= 3 )
+            {
+                var3 = 20;
+            }
+            else if ( var20 <= 4 )
+            {
+                var3 = 20;
+            }
+            else 
+            {
+                var3 = 20;
+            }
+
+            var18 = AI_RND( 100 );
+            
+            if ( var18 <= var3 )
+            {
+                AI_ACT_SKILL( BattleSkill.MarinKarin );
+                AI_NOTBAD( 255 );
+                return;
+            }
+
+        }
+
+        BIT_OFF( 5440 );
+        
+        if ( ( ( AI_FUNCTION_006C( 62 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 60 ) ) && ( var9 <= 10 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 62 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 20 ) ) && ( var9 <= 7 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 62 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 10 ) ) && ( var9 <= 5 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 62 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 5 ) ) && ( var9 <= 4 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( AI_FUNCTION_006C( 62 ) && ( AI_FUNCTION_00C4() == 0 ) ) && ( var9 <= 3 ) )
+        {
+            BIT_ON( 5440 );
+        }
+
+        
+        if ( BIT_CHK( 5440 ) )
+        {
+            var20 = AI_FUNCTION_00EA( 13 );
+            
+            if ( var20 <= 0 )
+            {
+                var3 = 0;
+            }
+            else if ( var20 <= 2 )
+            {
+                var3 = 20;
+            }
+            else if ( var20 <= 3 )
+            {
+                var3 = 20;
+            }
+            else if ( var20 <= 4 )
+            {
+                var3 = 20;
+            }
+            else 
+            {
+                var3 = 20;
+            }
+
+            var18 = AI_RND( 100 );
+            
+            if ( ( var18 <= var3 ) && ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Tentarafoo );
+                AI_TAR_RND();
+                return;
+            }
+
+        }
+
+        BIT_OFF( 5440 );
+        
+        if ( ( ( AI_FUNCTION_006C( 0x40 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 60 ) ) && ( var9 <= 10 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 0x40 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 20 ) ) && ( var9 <= 7 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 0x40 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 10 ) ) && ( var9 <= 5 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( ( AI_FUNCTION_006C( 0x40 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 5 ) ) && ( var9 <= 4 ) )
+        {
+            BIT_ON( 5440 );
+        }
+        else if ( ( AI_FUNCTION_006C( 0x40 ) && ( AI_FUNCTION_00C4() == 0 ) ) && ( var9 <= 3 ) )
+        {
+            BIT_ON( 5440 );
+        }
+
+        if ( BIT_CHK( 5440 ) )
+        {
+            var20 = AI_FUNCTION_00EA( 14 );
+            
+            if ( var20 <= 0 )
+            {
+                var3 = 0;
+            }
+            else if ( var20 <= 2 )
+            {
+                var3 = 20;
+            }
+            else if ( var20 <= 3 )
+            {
+                var3 = 20;
+            }
+            else if ( var20 <= 4 )
+            {
+                var3 = 20;
+            }
+            else 
+            {
+                var3 = 20;
+            }
+
+            var18 = AI_RND( 100 );
+            
+            if ( ( var18 <= var3 ) && ( BUFF_SELF_CHECK( SpecialEffects.PowerCharge ) == 0 ) )
+            {
+                AI_ACT_SKILL( BattleSkill.EvilSmile );
+                AI_TAR_RND();
+                return;
+            }
+
+        }
+    }
+
+    AI_ACT_WAIT();
+    AI_TAR_RND();
+    return;
+}
+
+int GET_Mgk( int a, int b )
+{
+    int var0;
+
+    if ( a == 3 )
+    {
+        if ( b == 0 )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Maragi ) )
+            {
+                var0 = BattleSkill.Maragi;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Maragilao ) )
+            {
+                var0 = BattleSkill.Maragilao;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Maragidyne ) )
+            {
+                var0 = BattleSkill.Maragidyne;
+            }
+        }
+
+        if ( AI_FUNCTION_006C( BattleSkill.Agi ) )
+        {
+            var0 = BattleSkill.Agi;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Agilao ) )
+        {
+            var0 = BattleSkill.Agilao;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Agidyne ) )
+        {
+            var0 = BattleSkill.Agidyne;
+        }            
+        else if ( AI_FUNCTION_006C( BattleSkill.Maragi ) )
+        {
+            var0 = BattleSkill.Maragi;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Maragilao ) )
+        {
+            var0 = BattleSkill.Maragilao;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Maragidyne ) )
+        {
+            var0 = BattleSkill.Maragidyne;
+        }
+    }
+    else if ( a == 4 )
+    {
+        if ( b == 0 )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Mabufu ) )
+            {
+                var0 = BattleSkill.Mabufu;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Mabufula ) )
+            {
+                var0 = BattleSkill.Mabufula;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Mabufudyne ) )
+            {
+                var0 = BattleSkill.Mabufudyne;
+            }
+        }
+
+        if ( AI_FUNCTION_006C( BattleSkill.Bufu ) )
+        {
+            var0 = BattleSkill.Bufu;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Bufula ) )
+        {
+            var0 = BattleSkill.Bufula;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Bufudyne ) )
+        {
+            var0 = BattleSkill.Bufudyne;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Mabufu ) )
+        {
+            var0 = BattleSkill.Mabufu;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Mabufula ) )
+        {
+            var0 = BattleSkill.Mabufula;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Mabufudyne ) )
+        {
+            var0 = BattleSkill.Mabufudyne;
+        }
+    }
+    else if ( a == Affinity.Elec )
+    {
+        if ( b == 0 )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Mazio ) )
+            {
+                var0 = BattleSkill.Mazio;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Mazionga ) )
+            {
+                var0 = BattleSkill.Mazionga;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Maziodyne ) )
+            {
+                var0 = BattleSkill.Maziodyne;
+            }
+        }
+
+        if ( AI_FUNCTION_006C( BattleSkill.Zio ) )
+        {
+            var0 = BattleSkill.Zio;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Zionga ) )
+        {
+            var0 = BattleSkill.Zionga;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Ziodyne ) )
+        {
+            var0 = BattleSkill.Ziodyne;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Mazio ) )
+        {
+            var0 = BattleSkill.Mazio;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Mazionga ) )
+        {
+            var0 = BattleSkill.Mazionga;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Maziodyne ) )
+        {
+            var0 = BattleSkill.Maziodyne;
+        }
+    }
+    else if ( a == Affinity.Wind )
+    {
+        if ( b == 0 )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Magaru ) )
+            {
+                var0 = BattleSkill.Magaru;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Magarula ) )
+            {
+                var0 = BattleSkill.Magarula;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Magarudyne ) )
+            {
+                var0 = BattleSkill.Magarudyne;
+            }
+        }
+
+        if ( AI_FUNCTION_006C( BattleSkill.Garu ) )
+        {
+            var0 = BattleSkill.Garu;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Garula ) )
+        {
+            var0 = BattleSkill.Garula;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Garudyne ) )
+        {
+            var0 = BattleSkill.Garudyne;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Magaru ) )
+        {
+            var0 = BattleSkill.Magaru;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Magarula ) )
+        {
+            var0 = BattleSkill.Magarula;
+        }
+        else if ( AI_FUNCTION_006C( BattleSkill.Magarudyne ) )
+        {
+            var0 = BattleSkill.Magarudyne;
+        }
+    }
+
+    return var0;
+}
+
+// Procedure Index: 2
+void AI_TIKARA_DASHIKIRE()
+{
+    int var27;
+    int var23;
+    int var26;
+    int var22;
+    int var25;
+    int var28;
+    int var24;
+
+    if ( AI_CHK_PLAYER_ID( 203 ) || AI_CHK_PLAYER_ID( 204 ) || AI_CHK_PLAYER_ID( 205 ) )
+    {
+        POWERDOOR_FA();
+        return;
+    }
+    if ( ( AI_CHK_PLAYER_ID( 206 ) || AI_CHK_PLAYER_ID( 207 ) || AI_CHK_PLAYER_ID( 208 ) ) && DEBUFF_ENEMIES_CHECK( SpecialEffects.Makarakarn ) )
+    {
+        if ( AI_FUNCTION_0070( Affinity.Wind ) )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Magarudyne ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Magarudyne );
+                AI_TAR_RND();
+                return;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Garudyne ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Garudyne );
+                AI_FUNCTION_00D3( SpecialEffects.Makarakarn );
+                return;
+            }
+        }
+        else if ( AI_FUNCTION_0070( Affinity.Ice ) )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Mabufudyne ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Mabufudyne );
+                AI_TAR_RND();
+                return;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Bufudyne ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Bufudyne );
+                AI_FUNCTION_00D3( SpecialEffects.Makarakarn );
+                return;
+            }
+        }
+        else if ( AI_FUNCTION_0070( Affinity.Elec) )
+        {
+            if ( AI_FUNCTION_006C( BattleSkill.Maziodyne ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Maziodyne );
+                AI_TAR_RND();
+                return;
+            }
+            else if ( AI_FUNCTION_006C( BattleSkill.Ziodyne ) )
+            {
+                AI_ACT_SKILL( BattleSkill.Ziodyne );
+                AI_FUNCTION_00D3( SpecialEffects.Makarakarn );
+                return;
+            }
+        }
+    }    
+    
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() )
+    {
+        var27 = AI_FUNCTION_007C();
+        var23 = AI_FUNCTION_0090();
+        
+        if ( ( AI_FUNCTION_009D( var27, var23 ) == 1 ) && ( AI_FUNCTION_0077( var27 ) == 1 ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_007A( var27 );
+            return;
+        }
+    }
+
+    var23 = AI_FUNCTION_0090();
+
+    for ( int i = 0; i < 3; i++)
+    {
+        if ( AI_FUNCTION_006E( i ) && AI_FUNCTION_0070( i ) )
+        {
+            var27 = AI_FUNCTION_0081( i );
+            
+            if ( var27 != -1)
+            {
+                if ( ( AI_CHK_HP_PERCENT( 35 ) == 1 && var23 == i ) )
+                {
+                    AI_ACT_WEAPON();
+                }
+                else 
+                {
+                    if ( AI_FUNCTION_0009( 2 ) || AI_FUNCTION_00E2( i ) != -1 )
+                    {
+                        var26 = AI_FUNCTION_0086( var27, i, 1 );
+                    }
+                    else
+                    {
+                        var26 = AI_FUNCTION_0086( var27, i, 0);
+                    }
+                    AI_ACT_SKILL( var26 );
+                }
+
+                AI_FUNCTION_007A( var27 );
+                return;
+            }
+        }
+    }  
+
+    for ( int i = 3; i < 7; i++)
+    {
+        if ( AI_FUNCTION_006E( i ) && AI_FUNCTION_0070( i ) )
+        {
+            var27 = AI_FUNCTION_0081( i );
+            
+            if ( var27 != -1)
+            {
+                if ( ( var23 == i ) )
+                {
+                    AI_ACT_WEAPON();
+                }
+                else 
+                {
+                    if ( AI_FUNCTION_0009( 2 ) || AI_FUNCTION_00E2( i ) != -1 )
+                    {
+                        var26 = AI_FUNCTION_0086( var27, i, 1 );
+                    }
+                    else
+                    {
+                        var26 = AI_FUNCTION_0086( var27, i, 0);
+                    }
+                    AI_ACT_SKILL( var26 );
+                }
+
+                AI_FUNCTION_007A( var27 );
+                return;
+            }
+        }
+    }  
+
+    if ( ( AI_FUNCTION_006E( 8 ) ) && ( AI_FUNCTION_0070( 8 ) ) )
+    {
+        var27 = AI_FUNCTION_0081( 8 );
+        
+        if ( var27 != -1 )
+        {
+            if ( AI_FUNCTION_0009( 2 ) || AI_FUNCTION_001A( 8 ) || AI_FUNCTION_001C( 8 ) )
+            {
+                if ( AI_FUNCTION_006C( BattleSkill.Hamaon ) )
+                {
+                    var26 = BattleSkill.Hamaon;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Hama ) )
+                {
+                    var26 = BattleSkill.Hama;
+                }
+            }
+            else
+            {                
+                if ( AI_FUNCTION_006C( BattleSkill.Mahamaon ) )
+                {
+                    var26 = BattleSkill.Mahamaon;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Mahama ) )
+                {
+                    var26 = BattleSkill.Mahama;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Hamaon ) )
+                {
+                    var26 = BattleSkill.Hamaon;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Hama ) )
+                {
+                    var26 = BattleSkill.Hama;
+                }
+            }
+            AI_ACT_SKILL( var26 );
+            AI_FUNCTION_007A( var27 );
+            return;
+        }
+    }
+
+    if ( ( AI_FUNCTION_006E( 9 ) ) && ( AI_FUNCTION_0070( 9 ) ) )
+    {
+        var27 = AI_FUNCTION_0081( 9 );
+        
+        if ( var27 != -1 )
+        {
+            if ( AI_FUNCTION_0009( 2 ) || AI_FUNCTION_001A( 9 ) || AI_FUNCTION_001C( 9 ) )
+            {
+                if ( AI_FUNCTION_006C( BattleSkill.Mudoon ) )
+                {
+                    var26 = BattleSkill.Mudoon;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Mudo ) )
+                {
+                    var26 = BattleSkill.Mudo;
+                }
+            }
+            else
+            {                
+                if ( AI_FUNCTION_006C( BattleSkill.Mamudoon ) )
+                {
+                    var26 = BattleSkill.Mamudoon;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Mamudo ) )
+                {
+                    var26 = BattleSkill.Mamudo;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Mudoon ) )
+                {
+                    var26 = BattleSkill.Mudoon;
+                }
+                else if ( AI_FUNCTION_006C( BattleSkill.Mudo ) )
+                {
+                    var26 = BattleSkill.Mudo;
+                }
+            }
+            AI_ACT_SKILL( var26 );
+            AI_FUNCTION_007A( var27 );
+            return;
+        }
+    }
+    
+    if ( AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 )
+    {
+        var22 = 50;
+    }
+    else if ( AI_FUNCTION_00BB( 8 ) )
+    {
+        var22 = 50;
+    }
+    else if ( AI_FUNCTION_00BB( 1 ) )
+    {
+        var22 = 30;
+    }
+    else 
+    {
+        var22 = -1;
+    }
+
+    var25 = AI_RND( 100 );
+    
+    if ( var25 <= var22 )
+    {
+        if ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 && AI_FUNCTION_006C( 221 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.MindCharge );
+            AI_MINE();
+            return;
+        }
+        else if ( BUFF_SELF_CHECK( SpecialEffects.PowerCharge ) == 0 && AI_FUNCTION_006C( 220 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.PowerCharge );
+            AI_MINE();
+            return;
+        }
+    }
+
+    var27 = AI_FUNCTION_007C();
+    
+    if ( AI_FUNCTION_0009( 1 ) == 1 )
+    {
+        var26 = AI_FUNCTION_0088( var27, 1, 0 );
+    }
+    else 
+    {
+        var26 = AI_FUNCTION_0088( var27, 0, 0 );
+    }
+
+    if ( var26 == 0 && AI_FUNCTION_0009( 1 ) )
+    {
+        var26 = AI_FUNCTION_0088( var27, -1, 0 );
+    }
+    
+    if ( !AI_FUNCTION_00B6() )
+    {
+        if ( var26 != -1 )
+    {
+        var28 = AI_FUNCTION_00DF( var26 );
+        
+        if ( ( ( ( var28 == 0 ) || ( var28 == 1 ) ) || ( var28 == 2 ) ) && AI_CHK_HP_PERCENT( 35 ) )
+        {
+            
+            if ( AI_FUNCTION_0009( 1 ) == 1 )
+            {
+                var26 = AI_FUNCTION_0088( var27, 1, 1 );
+            }
+            else 
+            {
+                var26 = AI_FUNCTION_0088( var27, 0, 1 );
+            }
+
+            
+            if ( var26 == -1 )
+            {
+                var23 = AI_FUNCTION_0090();
+                
+                if ( AI_FUNCTION_009D( var27, var23 ) )
+                {
+                    AI_ACT_WEAPON();
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+                else 
+                {
+                    var27 = AI_FUNCTION_0083( var23 );
+                    
+                    if ( var27 != -1 )
+                    {
+                        AI_ACT_WEAPON();
+                        AI_FUNCTION_007A( var27 );
+                        return;
+                    }
+                    else if ( ( AI_FUNCTION_0072( 8 ) && AI_FUNCTION_0070( 8 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+                    {
+                        
+                        if ( ( AI_FUNCTION_001A( 8 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+                        {
+                            
+                            if ( AI_FUNCTION_006C( 48 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Mahamaon );
+                                AI_TAR_RND();
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 46 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Mahama );
+                                AI_TAR_RND();
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 47 ) )
+                            {
+                                var27 = AI_FUNCTION_00E0( 8 );
+                                AI_ACT_SKILL( BattleSkill.Hamaon );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 45 ) )
+                            {
+                                var27 = AI_FUNCTION_00E0( 8 );
+                                AI_ACT_SKILL( BattleSkill.Hama );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+
+                        }
+                        else 
+                        {
+                            var27 = AI_FUNCTION_00E0( 8 );
+                            
+                            if ( AI_FUNCTION_006C( 47 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Hamaon );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 45 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Hama );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+
+                        }
+
+                    }
+                    else if ( ( AI_FUNCTION_0072( 9 ) && AI_FUNCTION_0070( 9 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+                    {
+                        
+                        if ( ( AI_FUNCTION_001A( 9 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+                        {
+                            
+                            if ( AI_FUNCTION_006C( 54 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Mamudoon );
+                                AI_TAR_RND();
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 52 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Mamudo );
+                                AI_TAR_RND();
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 53 ) )
+                            {
+                                var27 = AI_FUNCTION_00E0( 9 );
+                                AI_ACT_SKILL( BattleSkill.Mudoon );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 51 ) )
+                            {
+                                var27 = AI_FUNCTION_00E0( 9 );
+                                AI_ACT_SKILL( BattleSkill.Mudo );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+
+                        }
+                        else 
+                        {
+                            var27 = AI_FUNCTION_00E0( 9 );
+                            
+                            if ( AI_FUNCTION_006C( 53 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Mudoon );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+                            else if ( AI_FUNCTION_006C( 51 ) )
+                            {
+                                AI_ACT_SKILL( BattleSkill.Mudo );
+                                AI_FUNCTION_007A( var27 );
+                                return;
+                            }
+
+                        }
+
+                    }
+
+                    AI_ACT_WAIT();
+                    AI_TAR_RND();
+                    return;
+                }
+
+            }
+            else 
+            {
+                var28 = AI_FUNCTION_00DF( var26 );
+                var24 = AI_FUNCTION_00E2( var28 );
+                
+                if ( var24 != -1 )
+                {
+                    var26 = AI_FUNCTION_0088( var27, 1, 1 );
+                    AI_ACT_SKILL( var26 );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+                else 
+                {
+                    AI_ACT_SKILL( var26 );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+
+            }
+
+        }
+        else 
+        {
+            var24 = AI_FUNCTION_00E2( var28 );
+            
+            if ( ( var24 != -1 ) /* || ( AI_FUNCTION_0009( 1 ) == 1 ) */ )
+            {
+                var26 = AI_FUNCTION_0088( var27, 1, 0 );
+                AI_ACT_SKILL( var26 );
+                AI_FUNCTION_007A( var27 );
+                return;
+            }
+            else 
+            {
+                AI_ACT_SKILL( var26 );
+                AI_FUNCTION_007A( var27 );
+                return;
+            }
+
+        }
+
+    }
+    else 
+    {
+        var23 = AI_FUNCTION_0090();
+        var27 = AI_FUNCTION_0083( var23 );
+        
+        if ( var27 != -1 )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_007A( var27 );
+            return;
+        }
+        else if ( ( AI_FUNCTION_0072( 8 ) && AI_FUNCTION_0070( 8 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+        {
+            
+            if ( ( AI_FUNCTION_001A( 8 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+            {
+                
+                if ( AI_FUNCTION_006C( 48 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Mahamaon );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 46 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Mahama );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 47 ) )
+                {
+                    var27 = AI_FUNCTION_00E0( 8 );
+                    AI_ACT_SKILL( BattleSkill.Hamaon );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 45 ) )
+                {
+                    var27 = AI_FUNCTION_00E0( 8 );
+                    AI_ACT_SKILL( BattleSkill.Hama );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+
+            }
+            else 
+            {
+                var27 = AI_FUNCTION_00E0( 8 );
+                
+                if ( AI_FUNCTION_006C( 47 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Hamaon );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 45 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Hama );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+
+            }
+
+        }
+        else if ( ( AI_FUNCTION_0072( 9 ) && AI_FUNCTION_0070( 9 ) ) && ( AI_FUNCTION_00C4() == 0 ) )
+        {
+            
+            if ( ( AI_FUNCTION_001A( 9 ) == 0 ) && ( AI_FUNCTION_0009( 1 ) == 0 ) )
+            {
+                
+                if ( AI_FUNCTION_006C( 54 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Mamudoon );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 52 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Mamudo );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 53 ) )
+                {
+                    var27 = AI_FUNCTION_00E0( 9 );
+                    AI_ACT_SKILL( BattleSkill.Mudoon );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 51 ) )
+                {
+                    var27 = AI_FUNCTION_00E0( 9 );
+                    AI_ACT_SKILL( BattleSkill.Mudo );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+
+            }
+            else 
+            {
+                var27 = AI_FUNCTION_00E0( 9 );
+                
+                if ( AI_FUNCTION_006C( 53 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Mudoon );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+                else if ( AI_FUNCTION_006C( 51 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Mudo );
+                    AI_FUNCTION_007A( var27 );
+                    return;
+                }
+
+            }
+
+        }
+
+        var27 = AI_FUNCTION_007C();
+        
+        if ( ( AI_FUNCTION_0077( var27 ) == 1 ) && ( AI_FUNCTION_009D( var27, var23 ) == 1 ) )
+            {
+                AI_ACT_WEAPON();
+                AI_FUNCTION_007A( var27 );
+                return;
+            }
+        }
+    }
+
+    if ( DEBUFF_ENEMIES_CHECK( SpecialEffects.Tetrakarn ) )
+    {
+        if ( !AI_CHK_HP_PERCENT( 60 ) || AI_FUNCTION_0015( var23 ) || AI_FUNCTION_0016( var23 ) || AI_FUNCTION_0017( var23 ) || ( AI_FUNCTION_00FA( var23 ) && !AI_CHK_HP_PERCENT( 40 ) ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_00D3( SpecialEffects.Tetrakarn );
+            return;
+        }
+    }
+
+    if ( DEBUFF_ENEMIES_CHECK( SpecialEffects.Makarakarn ) )
+    {
+        for ( int i = 3; i < 7; i++ )
+        {
+            if ( AI_FUNCTION_0070( i ) && ( !AI_CHK_HP_PERCENT( 60 ) || AI_FUNCTION_0015( i ) || AI_FUNCTION_0016( i ) || AI_FUNCTION_0017( i ) || ( !AI_CHK_HP_PERCENT( 40 ) && AI_FUNCTION_00FA( i ) ) ) )
+            {
+                if ( AI_FUNCTION_00BF( SpecialEffects.Makarakarn ) > 1 )
+                {
+                    var26 = GET_Mgk( i, 0 );
+                }
+                else
+                {
+                    var26 = GET_Mgk( i, 1 );
+                }
+
+                if ( var26 > 0 )
+                {
+                    AI_ACT_SKILL( var26 );
+                    AI_FUNCTION_00D3( SpecialEffects.Makarakarn );
+                    return;
+                }
+            }
+        }
+    }    
+
+    AI_ACT_WAIT();
+    AI_TAR_RND();
+    return;
+}
+
+
+// Procedure Index: 3
+void AI_SP_ONZON()
+{
+    int var35;
+    int var32;
+    int var34;
+    int var33;
+
+    if ( AI_CHK_PLAYER_ID( 203 ) || AI_CHK_PLAYER_ID( 204 ) || AI_CHK_PLAYER_ID( 205 ) )
+    {
+        POWERDOOR_SP();
+        return;
+    }
+    else if ( AI_CHK_PLAYER_ID( 325 ) || AI_CHK_PLAYER_ID( 326 ) || AI_CHK_PLAYER_ID( 327 ) )
+    {
+        int var0;
+        int var1;
+
+        if ( !BUFF_ALLIES_CHECK( SpecialEffects.Makarakarn ) && GET_ITEM_NUM( 1315 ) > 0 )
+        {
+            AI_FUNCTION_0068( 1315 );
+            AI_TAR_RND();
+            return;
+        }
+
+        var0 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+
+        if ( var0 != -1 )
+        {
+            if ( GET_ITEM_NUM( Items.RevivalBead ) > 0 )
+            {
+                AI_FUNCTION_0068( Items.RevivalBead );
+                AI_FUNCTION_007A( var0 );
+                return;
+            }
+            else if ( GET_ITEM_NUM( 1290 ) > 0 )
+            {
+                AI_FUNCTION_0068( 1290 );
+                AI_FUNCTION_007A( var0 );
+                return;
+            }
+        }
+
+        AI_ACT_WAIT();
+        AI_TAR_RND();
+        return;
+    }
+    
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() )
+    {
+        var35 = AI_FUNCTION_007C();
+        var32 = AI_FUNCTION_0090();
+        
+        if ( ( AI_FUNCTION_009D( var35, var32 ) == 1 ) && ( AI_FUNCTION_0077( var35 ) == 1 ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_007A( var35 );
+            return;
+        }
+    }
+
+    var32 = AI_FUNCTION_0090();
+    var35 = AI_FUNCTION_0081( var32 );
+    
+    if ( var35 != -1 )
+    {
+        AI_ACT_WEAPON();
+        AI_FUNCTION_007A( var35 );
+        return;
+    }
+    
+    for ( int i = 0; i < 3; i++)
+    {
+        if ( AI_FUNCTION_006E( i ) && ( ( AI_CHK_HP_PERCENT( 30 ) == 0 ) && AI_FUNCTION_0070( i ) ) )
+        {
+            var35 = AI_FUNCTION_0081( i );
+            
+            if ( var35 != -1)
+            {
+                var34 = AI_FUNCTION_0086( var35, i, 1 );
+                AI_ACT_SKILL( var34 );
+                AI_FUNCTION_007A( var35 );
+                return;
+            }
+        }
+    }
+    
+    var35 = AI_FUNCTION_009B();    
+    
+    if ( ( AI_FUNCTION_0075( var35, 40 ) ) && GET_ITEM_NUM( Items.MedicalPowder ) > 1 )
+    {
+        if ( AI_FUNCTION_0075( AI_FUNCTION_007B( 0, PartyMember.Protagonist ), 40 ) )
+        {
+            var35 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        AI_FUNCTION_0068( Items.MedicalPowder );
+        AI_FUNCTION_007A( var35 );
+        return;
+    }
+
+    var35 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Fear );
+
+    if ( var35 != -1 && GET_ITEM_NUM( Items.PatraGem ) > 1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Fear ) )
+        {
+            var35 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        AI_FUNCTION_0068( Items.PatraGem );
+        AI_FUNCTION_007A( var35 );
+        return;
+    }
+
+    var35 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Charm );
+
+    if ( var35 != -1 && GET_ITEM_NUM( Items.DisCharm ) > 1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Charm ) )
+        {
+            var35 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        AI_FUNCTION_0068( Items.DisCharm );
+        AI_FUNCTION_007A( var35 );
+        return;
+    }
+
+    var35 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+
+    if ( var35 != -1 && GET_ITEM_NUM( Items.RevivalBead ) > 1 )
+    {
+        AI_FUNCTION_0068( Items.RevivalBead );
+        AI_FUNCTION_007A( var35 );
+        return;
+    }
+
+    var35 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Rage );
+
+    if ( var35 != -1 && GET_ITEM_NUM( Items.DisRage ) > 1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Rage ) )
+        {
+            var35 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        AI_FUNCTION_0068( Items.DisRage );
+        AI_FUNCTION_007A( var35 );
+        return;
+    }
+
+    if ( AI_FUNCTION_0001( 25 ) && AI_FUNCTION_006C( 76 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.SpiritDrain );
+        AI_FUNCTION_002F();
+        return;
+    }
+
+    var32 = AI_FUNCTION_0090();
+
+    if ( ( AI_FUNCTION_00C4() == 0 && AI_FUNCTION_0012() == 1 ) && !AI_CHK_PLAYER_ID( 193 ) )
+    {
+        var35 = AI_FUNCTION_0084( var32 );
+
+        if ( var35 != -1 && var32 <= 2 )
+        {
+            if ( AI_CHK_HP_PERCENT( 30 ) || AI_FUNCTION_0077( var35 ) )
+            {
+                AI_ACT_WEAPON();
+                AI_FUNCTION_007A( var35 );
+                return;
+            }
+        }
+
+        for ( int i = 0; i < 3; i++)
+        {
+            var35 = AI_FUNCTION_0084( i );
+
+            if ( var35 != -1 && ( AI_CHK_HP_PERCENT( 30 ) == 0 ) && AI_FUNCTION_0070( i ) )
+            {
+                var34 = AI_FUNCTION_0086( var35, i, 1 );
+                AI_ACT_SKILL( var34 );
+                AI_FUNCTION_007A( var35 );
+                return;
+            }
+        }  
+    }
+
+    if ( !AI_FUNCTION_00B6() )
+    {
+        var32 = AI_FUNCTION_00F8( 2 );
+        var33 = AI_FUNCTION_00DF( var32 );
+        var34 = AI_FUNCTION_0083( var33 );
+
+        if ( var34 != -1 )
+        {
+            if ( AI_FUNCTION_0009( 1 ) || AI_FUNCTION_00E2( var33 ) != -1 )
+            {
+                var35 = 1;
+            }
+            else
+            {
+                var35 = 0;
+            }
+
+            var32 = AI_FUNCTION_0086( var34, var33, var35 );
+
+            if ( var32 != -1 )
+            {
+                AI_ACT_SKILL( var32 );
+                AI_FUNCTION_007A( var34 );
+                return;
+            }
+        }
+
+        if ( AI_FUNCTION_0072( 0 ) && ( ( AI_CHK_HP_PERCENT( 35 ) == 0 ) && AI_FUNCTION_0070( 0 ) ) )
+        {
+            var35 = AI_FUNCTION_0083( 0 );
+
+            if ( AI_FUNCTION_00E2( 0 ) != -1 || AI_FUNCTION_0009( 1 ) )
+            {
+                var34 = AI_FUNCTION_0086( var35, 0, 1 );
+            }
+            else
+            {
+                var34 = AI_FUNCTION_0086( var35, 0, 0 );
+            }
+
+            AI_ACT_SKILL( var34 );
+            AI_FUNCTION_007A( var35 );
+            return;
+        }
+        else if ( AI_FUNCTION_0072( 1 ) && ( ( AI_CHK_HP_PERCENT( 35 ) == 0 ) && AI_FUNCTION_0070( 1 ) ) )
+        {
+            var35 = AI_FUNCTION_0083( 1 );
+            
+            if ( AI_FUNCTION_00E2( 1 ) != -1 || AI_FUNCTION_0009( 1 ) )
+            {
+                var34 = AI_FUNCTION_0086( var35, 1, 1 );
+            }
+            else
+            {
+                var34 = AI_FUNCTION_0086( var35, 1, 0 );
+            }
+
+            AI_ACT_SKILL( var34 );
+            AI_FUNCTION_007A( var35 );
+            return;
+        }
+        else if ( AI_FUNCTION_0072( 2 ) && ( ( AI_CHK_HP_PERCENT( 35 ) == 0 ) && AI_FUNCTION_0070( 2 ) ) )
+        {
+            var35 = AI_FUNCTION_0083( 2 );
+            
+            if ( AI_FUNCTION_00E2( 2 ) != -1 || AI_FUNCTION_0009( 1 ) )
+            {
+                var34 = AI_FUNCTION_0086( var35, 2, 1 );
+            }
+            else
+            {
+                var34 = AI_FUNCTION_0086( var35, 2, 0 );
+            }
+            
+            AI_ACT_SKILL( var34 );
+            AI_FUNCTION_007A( var35 );
+            return;
+        }
+        else 
+        {
+            var32 = AI_FUNCTION_0090();
+            var35 = AI_FUNCTION_0083( var32 );
+            
+            if ( var35 != -1 )
+            {
+                AI_ACT_WEAPON();
+                AI_FUNCTION_007A( var35 );
+                return;
+            }
+
+        }
+    }
+
+    if ( DEBUFF_ENEMIES_CHECK( SpecialEffects.Tetrakarn ) )
+    {
+        if ( !AI_CHK_HP_PERCENT( 60 ) || AI_FUNCTION_0015( var32 ) || AI_FUNCTION_0016( var32 ) || AI_FUNCTION_0017( var32 ) || ( AI_FUNCTION_00FA( var32 ) && !AI_CHK_HP_PERCENT( 40 ) ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_00D3( SpecialEffects.Tetrakarn );
+            return;
+        }
+    }    
+
+    var35 = AI_FUNCTION_009B();    
+    
+    if ( ( AI_FUNCTION_0075( var35, 80 ) ) && GET_ITEM_NUM( Items.MedicalPowder ) > 1 )
+    {
+        if ( AI_FUNCTION_0075( AI_FUNCTION_007B( 0, PartyMember.Protagonist ), 80 ))
+        {
+            var35 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }        
+
+        var34 = Items.MedicalPowder;
+        AI_FUNCTION_0068( var34 );
+        AI_FUNCTION_007A( var35 );
+        return;
+    } 
+
+    AI_ACT_WAIT();
+    AI_TAR_RND();
+    return;
+
+}
+
+
+// Procedure Index: 4
+void AI_TAIRYOKU()
+{
+    int var51;
+    int var42;
+    int var37;
+    int var41;
+    int var45;
+    int var36;
+    int var48;
+    int var49;
+    int var47;
+    int var44;
+    int var52;
+    int var46;
+    int var50;
+    int var39;
+    int var43;
+    int var40;
+
+    int var53;
+    int var54;
+    int var55;
+    int var56;
+    int var57;
+    int var58;
+    int var59;
+    int var60;
+    int var61;
+    int var62;
+    int var63;
+    int var64;
+    int var65;
+
+    var53 = 0;
+    var54 = 0;
+    var55 = 0;
+    var56 = 0;
+    var57 = 0;
+    var58 = 0;
+    var59 = 0;
+    var60 = 0;
+    var61 = 0;
+    var62 = 0;
+    var63 = 0;
+    var64 = 0;
+    var65 = 0;
+
+    if ( AI_CHK_PLAYER_ID( 203 ) || AI_CHK_PLAYER_ID( 204 ) || AI_CHK_PLAYER_ID( 205 ) )
+    {
+        POWERDOOR_HP();
+        return;
+    }
+    else if ( AI_CHK_PLAYER_ID( 206 ) || AI_CHK_PLAYER_ID( 207 ) || AI_CHK_PLAYER_ID( 208 ) )
+    {
+        ENDURANCEDOOR_HP();
+        return;
+    }
+    else if ( AI_CHK_PLAYER_ID( 325 ) || AI_CHK_PLAYER_ID( 326 ) || AI_CHK_PLAYER_ID( 327 ) )
+    {
+        int var0;
+        int var1;
+
+        if ( !BUFF_ALLIES_CHECK( SpecialEffects.Makarakarn ) && GET_ITEM_NUM( 1315 ) > 0 )
+        {
+            AI_FUNCTION_0068( 1315 );
+            AI_TAR_RND();
+            return;
+        }
+
+        var0 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+
+        if ( var0 != -1 )
+        {
+            if ( AI_FUNCTION_0075( var0, 17 ) )
+            {
+                AI_FUNCTION_0086( var0, 17, 0 );
+                AI_FUNCTION_007A( var0 );
+                return;
+            }
+            else if ( GET_ITEM_NUM( Items.RevivalBead ) > 0 )
+            {
+                AI_FUNCTION_0068( Items.RevivalBead );
+                AI_FUNCTION_007A( var0 );
+                return;
+            }
+            else if ( GET_ITEM_NUM( 1290 ) > 0 )
+            {
+                AI_FUNCTION_0068( 1290 );
+                AI_FUNCTION_007A( var0 );
+                return;
+            }
+        }
+
+        AI_ACT_WAIT();
+        AI_TAR_RND();
+        return;
+    }
+
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() && !AI_CHK_PLAYER_ID( 273 ) && !AI_CHK_PLAYER_ID( 282 ) && !AI_CHK_PLAYER_ID( 283 ) && !AI_CHK_PLAYER_ID( 284 ) && !AI_CHK_PLAYER_ID( 285 ) && !AI_CHK_PLAYER_ID( 286 ) && !AI_CHK_PLAYER_ID( 287 ) && !AI_CHK_PLAYER_ID( 288 ) && !AI_CHK_PLAYER_ID( 289 ) && !AI_CHK_PLAYER_ID( 290 ) && !AI_CHK_PLAYER_ID( 291 ) && !AI_CHK_PLAYER_ID( 292 )  )
+    {
+        var51 = AI_FUNCTION_007C();
+        var42 = AI_FUNCTION_0090();
+        
+        if ( ( AI_FUNCTION_009D( var51, var42 ) == 1 ) && ( AI_FUNCTION_0077( var51 ) == 1 ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_007A( var51 );
+            return;
+        }
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 40, 0 );
+    
+    if ( var37 != -1 )
+    {
+        if ( AI_FUNCTION_0075( AI_FUNCTION_007B( 0, PartyMember.Protagonist ), 40 ) )
+        {
+            var37 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+        
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var51 = AI_FUNCTION_00DC( 70 );
+            
+            if ( var51 >= 2 )
+            {
+                var41 = AI_FUNCTION_0086( var37, 17, 0 );
+            }
+            else 
+            {
+                var41 = AI_FUNCTION_0086( var37, 17, 1 );
+            }
+
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.MedicalPowder ) > 1 )
+        {
+            var41 = Items.MedicalPowder;
+
+            AI_FUNCTION_0068( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Fear );
+    
+    if ( var37 != -1 )
+    {        
+        if ( AI_FUNCTION_005D( 1, StatusEffects.Fear ) )
+        {
+            var37 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var41 = AI_FUNCTION_0086( var37, 17, 1);
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.PatraGem ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.PatraGem );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Charm );
+    
+    if ( var37 != -1 )
+    {
+        if ( AI_FUNCTION_005D( 1, StatusEffects.Charm ) )
+        {
+            var37 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+             
+        if ( AI_FUNCTION_006C( BattleSkill.Charmdi ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Charmdi );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.DisCharm ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.DisCharm );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+    }
+
+    var37 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+    
+    if ( var37 != -1 )
+    {
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var41 = AI_FUNCTION_0086( var37, 17, 0 );
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.RevivalBead ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.RevivalBead );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Rage );
+    
+    if ( var37 != -1 && GET_ITEM_NUM( Items.DisRage ) > 1 )
+    {        
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Rage ) )
+        {
+            var37 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        AI_FUNCTION_0068( Items.DisRage );
+        AI_FUNCTION_007A( var37 );
+        return;
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Despair );
+    
+    if ( var37 != -1 )
+    {        
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Despair ) )
+        {
+            var37 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+                
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var41 = AI_FUNCTION_0086( var37, 17, 1);
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.PatraGem ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.PatraGem );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+
+    }
+
+    var45 = AI_FUNCTION_00DD();
+    var36 = AI_FUNCTION_00DE();
+    var48 = ( var45 - var36 );
+    
+    if ( var48 <= -8 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= -3 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 0 )
+    {
+        var49 = 80;
+    }
+    else if ( var48 <= 3 )
+    {
+        var49 = 50;
+    }
+    else 
+    {
+        var49 = 20;
+    }
+
+    var47 = AI_RND( 100 );
+    var44 = AI_FUNCTION_007B( 0, 1 );
+    
+    if ( ( ( var47 <= var49 ) && AI_FUNCTION_005D( 1, 0x00100000 ) ) && AI_FUNCTION_006C( 201 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.RePatra );
+        AI_FUNCTION_007A( var44 );
+        return;
+    }
+
+
+    var45 = AI_FUNCTION_00DD();
+    var36 = AI_FUNCTION_00DE();
+    var48 = ( var45 - var36 );
+    
+    if ( var48 <= -8 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= -3 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 0 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 3 )
+    {
+        var49 = 40;
+    }
+    else 
+    {
+        var49 = 20;
+    }
+
+    var47 = AI_RND( 100 );
+
+    if ( ( var47 <= var49 ) || AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 )
+    {
+        var53 = 0;
+
+        if ( ( AI_FUNCTION_006C( BattleSkill.Matarukaja ) && BUFF_ALLIES_CHECK( SpecialEffects.AttackBuff ) == 0 ) || ( AI_FUNCTION_006C( BattleSkill.Tarukaja ) && AI_FUNCTION_00C1( SpecialEffects.AttackBuff ) != -1 ) )
+        {
+            var53 = ( var53 + 1 );
+            var54 = ( var54 + var53 );
+        }
+
+        if ( ( AI_FUNCTION_006C( BattleSkill.Masukukaja ) && BUFF_ALLIES_CHECK( SpecialEffects.HitUpBuff ) == 0 ) || ( AI_FUNCTION_006C( BattleSkill.Sukukaja ) && AI_FUNCTION_00C1( SpecialEffects.HitUpBuff ) != -1 ) )
+        {
+            var53 = ( var53 + 1 );
+            var56 = ( var56 + var53 );
+        }
+
+        if ( ( AI_FUNCTION_006C( BattleSkill.Marakukaja ) && BUFF_ALLIES_CHECK( SpecialEffects.DefenseBuff ) == 0 ) || ( AI_FUNCTION_006C( BattleSkill.Rakukaja ) && AI_FUNCTION_00C1( SpecialEffects.DefenseBuff ) != -1 ) )
+        {
+            var53 = ( var53 + 1 );
+            var55 = ( var55 + var53 );
+        }
+
+        if (var53 > 0 )
+        {
+            var57 = ( AI_RND( var53 ) + 1 );
+
+            if ( var57 == var54 )
+            {
+                if ( ( AI_FUNCTION_006C( BattleSkill.Matarukaja ) && BUFF_ALLIES_CHECK( SpecialEffects.AttackBuff ) == 0 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Matarukaja );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( ( AI_FUNCTION_006C( BattleSkill.Tarukaja ) && AI_FUNCTION_00C1( SpecialEffects.AttackBuff ) != -1 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Tarukaja );
+                    AI_FUNCTION_007A( AI_FUNCTION_00C1( SpecialEffects.AttackBuff ) );
+                    return;
+                }
+            }
+            else if ( var57 == var56 )
+            {
+                if ( ( AI_FUNCTION_006C( BattleSkill.Masukukaja ) && BUFF_ALLIES_CHECK( SpecialEffects.HitUpBuff ) == 0 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Masukukaja );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( ( AI_FUNCTION_006C( BattleSkill.Sukukaja ) && AI_FUNCTION_00C1( SpecialEffects.HitUpBuff ) != -1 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Sukukaja );
+                    AI_FUNCTION_007A( AI_FUNCTION_00C1( SpecialEffects.HitUpBuff ) );
+                    return;
+                }
+            }
+            else if ( var57 == var55 )
+            {
+                if ( ( AI_FUNCTION_006C( BattleSkill.Marakukaja ) && BUFF_ALLIES_CHECK( SpecialEffects.DefenseBuff ) == 0 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Marakukaja );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( ( AI_FUNCTION_006C( BattleSkill.Rakukaja ) && AI_FUNCTION_00C1( SpecialEffects.DefenseBuff ) != -1 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Rakukaja );
+                    AI_FUNCTION_007A( AI_FUNCTION_00C1( SpecialEffects.DefenseBuff ) );
+                    return;
+                }
+            }
+        }
+    }
+
+    var45 = AI_FUNCTION_00DD();
+    var36 = AI_FUNCTION_00DE();
+    var48 = ( var45 - var36 );
+    
+    if ( var48 <= -8 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= -3 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 0 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 3 )
+    {
+        var49 = 50;
+    }
+    else 
+    {
+        var49 = 20;
+    }
+
+    var47 = AI_RND( 100 );
+
+    if ( ( var47 <= var49 ) || AI_FUNCTION_00C4() || AI_FUNCTION_0012() == 0 )
+    {
+
+        var58 = 0;
+
+        if ( ( AI_FUNCTION_006C( BattleSkill.Matarunda ) && !DEBUFF_ENEMIES_CHECK( SpecialEffects.AttackDebuff ) ) || ( AI_FUNCTION_006C( BattleSkill.Tarunda ) && AI_FUNCTION_00C2( SpecialEffects.AttackDebuff ) != -1 ) )
+        {
+            var58 = ( var58 + 1 );
+            var59 = ( var59 + var58 );
+        }
+
+        if ( ( AI_FUNCTION_006C( BattleSkill.Masukunda ) && !DEBUFF_ENEMIES_CHECK( SpecialEffects.HitUpDebuff ) ) || ( AI_FUNCTION_006C( BattleSkill.Sukunda ) && AI_FUNCTION_00C2( SpecialEffects.HitUpDebuff ) != -1 ) )
+        {
+            var58 = ( var58 + 1 );
+            var61 = ( var61 + var58 );
+        }
+
+        if ( ( AI_FUNCTION_006C( BattleSkill.Marakunda ) && !DEBUFF_ENEMIES_CHECK( SpecialEffects.DefenseDebuff ) ) || ( AI_FUNCTION_006C( BattleSkill.Rakunda ) && AI_FUNCTION_00C2( SpecialEffects.DefenseDebuff ) != -1 ) )
+        {
+            var58 = ( var58 + 1 );
+            var60 = ( var60 + var58 );
+        }
+
+        if ( var58 > 0 )
+        {
+            var57 = ( AI_RND( var58 ) + 1 );
+
+            if ( var57 == var59 )
+            {
+                if ( ( AI_FUNCTION_006C( BattleSkill.Matarunda ) && !DEBUFF_ENEMIES_CHECK( SpecialEffects.AttackDebuff ) ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Matarunda );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( ( AI_FUNCTION_006C( BattleSkill.Tarunda ) && AI_FUNCTION_00C2( SpecialEffects.AttackDebuff ) != -1 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Tarunda );
+                    AI_FUNCTION_007A( AI_FUNCTION_00C2( SpecialEffects.AttackDebuff ) );
+                    return;
+                }
+            }
+            else if ( var57 == var61 )
+            {
+                if ( ( AI_FUNCTION_006C( BattleSkill.Masukunda ) && !DEBUFF_ENEMIES_CHECK( SpecialEffects.HitUpDebuff ) ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Masukunda );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( ( AI_FUNCTION_006C( BattleSkill.Sukunda ) && AI_FUNCTION_00C2( SpecialEffects.HitUpDebuff ) != -1 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Sukunda );
+                    AI_FUNCTION_007A( AI_FUNCTION_00C2( SpecialEffects.HitUpDebuff ) );
+                    return;
+                }
+            }
+            else if ( var57 == var60 )
+            {
+                if ( ( AI_FUNCTION_006C( BattleSkill.Marakunda ) && !DEBUFF_ENEMIES_CHECK( SpecialEffects.DefenseDebuff ) ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Marakunda );
+                    AI_TAR_RND();
+                    return;
+                }
+                else if ( ( AI_FUNCTION_006C( BattleSkill.Rakunda ) && AI_FUNCTION_00C2( SpecialEffects.DefenseDebuff ) != -1 ) )
+                {
+                    AI_ACT_SKILL( BattleSkill.Rakunda );
+                    AI_FUNCTION_007A( AI_FUNCTION_00C2( SpecialEffects.DefenseDebuff ) );
+                    return;
+                }
+            }
+        }
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 60, 0 );
+    
+    if ( var37 != -1 )
+    {
+        
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var51 = AI_FUNCTION_00DC( 70 );
+            
+            if ( var51 >= 2 )
+            {
+                var41 = AI_FUNCTION_0086( var37, 17, 0 );
+            }
+            else 
+            {
+                var41 = AI_FUNCTION_0086( var37, 17, 1 );
+            }
+
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.MedicalPowder ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.MedicalPowder );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Panic );
+    
+    if ( var37 != -1 )
+    {
+        if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Panic ) )
+        {
+            var37 = AI_FUNCTION_007B( 0, PartyMember.Protagonist);
+        }        
+
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var41 = AI_FUNCTION_0086( var37, 17, 0 );
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.PatraGem ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.PatraGem );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Poison );
+    
+    if ( var37 != -1 )
+    {
+
+        if ( AI_FUNCTION_0075( var37, 50 ) )
+        {
+            if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+            {
+                var51 = AI_FUNCTION_00DC( 70 );
+                
+                if ( var51 >= 2 )
+                {
+                    var41 = AI_FUNCTION_0086( var37, 17, 0 );
+                }
+                else 
+                {
+                    var41 = AI_FUNCTION_0086( var37, 17, 1 );
+                }
+
+                AI_ACT_SKILL( var41 );
+                AI_FUNCTION_007A( var37 );
+                return;
+            }
+        }
+        else if ( GET_ITEM_NUM( Items.DisPoison ) > 1 )
+        {
+            AI_FUNCTION_0068( Items.DisPoison );
+            AI_FUNCTION_007A( var37 );
+
+            if ( AI_FUNCTION_005D( PartyMember.Protagonist, StatusEffects.Poison ) )
+            {
+                AI_ID( 1 );
+            }
+            return;
+        }
+
+
+    }
+
+    var45 = AI_FUNCTION_00DD();
+    var36 = AI_FUNCTION_00DE();
+    var48 = ( var45 - var36 );
+    
+    if ( var48 <= -8 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= -3 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 0 )
+    {
+        var49 = 100;
+    }
+    else if ( var48 <= 3 )
+    {
+        var49 = 80;
+    }
+    else 
+    {
+        var49 = 20;
+    }
+
+    var47 = AI_RND( 100 );
+
+    if ( ( var47 <= var49 ) && AI_FUNCTION_006C( BattleSkill.RePatra ) && AI_FUNCTION_000B( StatusEffects.Downed ) )
+    {
+        if ( AI_FUNCTION_005D( 2, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 2);
+        }
+        else if ( AI_FUNCTION_005D( 3, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 3);
+        }
+        else if ( AI_FUNCTION_005D( 4, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 4);
+        }
+        else if ( AI_FUNCTION_005D( 5, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 5);
+        }
+        else if ( AI_FUNCTION_005D( 7, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 7);
+        }
+        else if ( AI_FUNCTION_005D( 8, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 8);
+        }
+        else if ( AI_FUNCTION_005D( 9, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 9);
+        }
+        else if ( AI_FUNCTION_005D( 10, StatusEffects.Downed ) )
+        {
+            var51 = AI_FUNCTION_007B( 0, 10);
+        }
+
+        AI_ACT_SKILL( BattleSkill.RePatra );
+        AI_FUNCTION_007A( var51 );
+        return;
+    }
+
+    var52 = AI_FUNCTION_00BF( 1 );
+    var46 = AI_FUNCTION_00BF( 0x40 );
+    var50 = AI_FUNCTION_00BF( 0x10 );
+    var39 = ( ( var52 + var46 ) + var50 );
+    
+    if ( ( ( AI_FUNCTION_0009( 1 ) && ( var39 >= 1 ) ) || ( AI_FUNCTION_0009( 3 ) && ( var39 >= 1 ) ) ) || ( AI_FUNCTION_0009( 5 ) && ( var39 >= 2 ) ) )
+    {
+        
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        {
+            var49 = 100;
+        }
+        else 
+        {
+            var49 = 100;
+        }
+
+        var47 = AI_RND( 100 );
+        
+        if ( ( var47 <= var49 ) && AI_FUNCTION_006C( 223 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Dekaja );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    var52 = AI_FUNCTION_00BC( 2 );
+    var46 = AI_FUNCTION_00BC( 0x80 );
+    var50 = AI_FUNCTION_00BC( 0x20 );
+    var43 = ( ( var52 + var46 ) + var50 );
+    var52 = AI_FUNCTION_00BC( 0x00040000 );
+    var46 = AI_FUNCTION_00BC( 0x00080000 );
+    var50 = AI_FUNCTION_00BC( 0x00100000 );
+    var43 = ( ( ( var43 + var52 ) + var46 ) + var50 );
+    var52 = AI_FUNCTION_00BC( 0x00200000 );
+    var43 = ( var43 + var52 );
+    
+    if ( ( AI_FUNCTION_0008( 2 ) && ( var43 >= 1 ) ) || ( AI_FUNCTION_0008( 4 ) && ( var43 >= 1 ) ) )
+    {
+        
+        if ( ( AI_FUNCTION_00BB( 1 ) == 0 ) && ( AI_FUNCTION_00C4() == 0 ) )
+        {
+            var49 = 100;
+        }
+        else 
+        {
+            var49 = 100;
+        }
+
+        var47 = AI_RND( 100 );
+        
+        if ( ( var47 <= var49 ) && AI_FUNCTION_006C( 212 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Dekunda );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    for ( int i = 0; i < 7; i++ )
+    {
+        if ( AI_FUNCTION_006E( i ) && AI_FUNCTION_0070( i ) )
+        {
+            AI_TIKARA_DASHIKIRE();
+            return;
+        }
+    }
+
+    var37 = AI_FUNCTION_00A0( 1, 80, 0 );
+    
+    if ( var37 != -1 )
+    {
+        
+        if ( AI_FUNCTION_0078( var37, 17 ) == 1 )
+        {
+            var51 = AI_FUNCTION_00DC( 70 );
+            var50 = AI_FUNCTION_00DC( 80 );
+            
+            if ( var51 >= 2 || var50 >= 3 )
+            {
+                var41 = AI_FUNCTION_0086( var37, 17, 0 );
+            }
+            else 
+            {
+                var41 = AI_FUNCTION_0086( var37, 17, 1 );
+            }
+
+            AI_ACT_SKILL( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.MedicalPowder ) > 1 )
+        {
+            var41 = Items.MedicalPowder;
+            AI_FUNCTION_0068( var41 );
+            AI_FUNCTION_007A( var37 );
+            return;
+        }
+
+    }
+
+    var45 = AI_FUNCTION_00DD();
+    var36 = AI_FUNCTION_00DE();
+    var48 = ( var45 - var36 );
+    
+    if ( var48 <= -8 )
+    {
+        var49 = 90;
+    }
+    else if ( var48 <= -3 )
+    {
+        var49 = 70;
+    }
+    else if ( var48 <= 0 )
+    {
+        var49 = 50;
+    }
+    else if ( var48 <= 3 )
+    {
+        var49 = 30;
+    }
+    else 
+    {
+        var49 = 10;
+    }
+
+    var47 = AI_RND( 100 );
+    
+    if ( var47 <= var49 || AI_FUNCTION_00C4() || !AI_FUNCTION_0012() )
+    {
+        var51 = AI_FUNCTION_00E2( 3 );
+        
+        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 3 ) || AI_FUNCTION_00E3( 5, 3 ) || AI_FUNCTION_00E3( 10, 3 ) ) && AI_FUNCTION_006C( 229 ) && AI_FUNCTION_00BF( SpecialEffects.FireBreak ) == 0 )
+        {
+            AI_ACT_SKILL( BattleSkill.FireBreak );
+            AI_FUNCTION_007A( var51 );
+            return;
+        }
+
+        var51 = AI_FUNCTION_00E2( 4 );
+        
+        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 4 ) || AI_FUNCTION_00E3( 4, 4 ) ) && AI_FUNCTION_006C( 230 ) && AI_FUNCTION_00BF( SpecialEffects.IceBreak ) == 0 )
+        {
+            AI_ACT_SKILL( BattleSkill.IceBreak );
+            AI_FUNCTION_007A( var51 );
+            return;
+        }
+
+        var51 = AI_FUNCTION_00E2( 6 );
+        
+        if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 6 ) || AI_FUNCTION_00E3( 2, 6 ) ) && AI_FUNCTION_006C( 231 ) && AI_FUNCTION_00BF( SpecialEffects.WindBreak ) == 0 )
+        {
+            AI_ACT_SKILL( BattleSkill.WindBreak );
+            AI_FUNCTION_007A( var51 );
+            return;
+        }
+
+        // var51 = AI_FUNCTION_00E2( 5 );
+        
+        // if ( ( var51 != -1 ) && ( AI_FUNCTION_00E3( 1, 5 ) || AI_FUNCTION_00E3( 7, 5 ) || AI_FUNCTION_00E3( 8, 5 ) ) && AI_FUNCTION_006C( 232 ) && AI_FUNCTION_00BF( SpecialEffects.ElecBreak ) == 0 )
+        // {
+        //     AI_ACT_SKILL( BattleSkill.ElecBreak );
+        //     AI_FUNCTION_007A( var51 );
+        //     return;
+        // }
+
+    }
+    
+    if ( AI_FUNCTION_0001( 25 ) && AI_FUNCTION_006C( 76 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.SpiritDrain );
+        AI_FUNCTION_002F();
+        return;
+    }
+
+    var45 = AI_FUNCTION_00DD();
+    var36 = AI_FUNCTION_00DE();
+    var48 = ( var45 - var36 );
+    BIT_OFF( 5440 );
+    
+    if ( ( ( AI_FUNCTION_006C( 58 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 60 ) ) && ( var48 <= 10 ) )
+    {
+        BIT_ON( 5440 );
+    }
+
+    
+    if ( BIT_CHK( 5440 ) && AI_FUNCTION_006C( 58 ) )
+    {
+        var51 = AI_FUNCTION_00EA( 10 );
+        
+        if ( var51 <= 0 )
+        {
+            var40 = 0;
+        }
+        else if ( var51 <= 2 )
+        {
+            var40 = 20;
+        }
+        else if ( var51 <= 3 )
+        {
+            var40 = 50;
+        }
+        else if ( var51 <= 4 )
+        {
+            var40 = 50;
+        }
+        else 
+        {
+            var40 = 70;
+        }
+
+        var47 = AI_RND( 100 );
+        
+        if ( ( var47 <= var40 ) && ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.SexyDance );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    BIT_OFF( 5440 );
+    
+    if ( ( ( AI_FUNCTION_006C( 62 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 60 ) ) && ( var48 <= 10 ) )
+    {
+        BIT_ON( 5440 );
+    }
+
+    
+    if ( BIT_CHK( 5440 ) && AI_FUNCTION_006C( 62 ) )
+    {
+        var51 = AI_FUNCTION_00EA( 13 );
+        
+        if ( var51 <= 0 )
+        {
+            var40 = 0;
+        }
+        else if ( var51 <= 2 )
+        {
+            var40 = 20;
+        }
+        else if ( var51 <= 3 )
+        {
+            var40 = 50;
+        }
+        else if ( var51 <= 4 )
+        {
+            var40 = 50;
+        }
+        else 
+        {
+            var40 = 70;
+        }
+
+        var47 = AI_RND( 100 );
+        
+        if ( ( var47 <= var40 ) && ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Tentarafoo );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    BIT_OFF( 5440 );
+    
+    if ( ( ( AI_FUNCTION_006C( 0x40 ) && ( AI_FUNCTION_00C4() == 0 ) ) && AI_FUNCTION_0006( 60 ) ) && ( var48 <= 10 ) )
+    {
+        BIT_ON( 5440 );
+    }
+
+    
+    if ( BIT_CHK( 5440 ) && AI_FUNCTION_006C( 0x40 ) )
+    {
+        var51 = AI_FUNCTION_00EA( 14 );
+        
+        if ( var51 <= 0 )
+        {
+            var40 = 0;
+        }
+        else if ( var51 <= 2 )
+        {
+            var40 = 20;
+        }
+        else if ( var51 <= 3 )
+        {
+            var40 = 50;
+        }
+        else if ( var51 <= 4 )
+        {
+            var40 = 50;
+        }
+        else 
+        {
+            var40 = 70;
+        }
+
+        var47 = AI_RND( 100 );
+        
+        if ( ( var47 <= var40 ) && ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.EvilSmile );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    BIT_OFF( 5440 );
+    
+    if ( AI_FUNCTION_006C( 60 ) && ( AI_FUNCTION_00C4() == 0 ) )
+    {
+        BIT_ON( 5440 );
+    }
+
+    
+    if ( BIT_CHK( 5440 ) && AI_FUNCTION_006C( 60 ) )
+    {
+        var51 = AI_FUNCTION_00EA( 12 );
+        
+        if ( var51 <= 0 )
+        {
+            var40 = 0;
+        }
+        else if ( var51 <= 2 )
+        {
+            var40 = 20;
+        }
+        else if ( var51 <= 3 )
+        {
+            var40 = 50;
+        }
+        else if ( var51 <= 4 )
+        {
+            var40 = 50;
+        }
+        else 
+        {
+            var40 = 70;
+        }
+
+        var47 = AI_RND( 100 );
+        
+        if ( ( var47 <= var40 ) && ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 ) )
+        {
+            AI_ACT_SKILL( BattleSkill.EerieSound );
+            AI_TAR_RND();
+            return;
+        }
+
+    }
+
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 5
+void AI_ORGIA()
+{
+    int var73;
+    int var69;
+    int var72;
+    int var74;
+    int var70;
+    
+    if ( AI_FUNCTION_0009( 1 ) == 1 && !AI_FUNCTION_00B6() )
+    {
+        var73 = AI_FUNCTION_007C();
+        var69 = AI_FUNCTION_0090();
+        
+        if ( ( AI_FUNCTION_009D( var73, var69 ) == 1 ) && ( AI_FUNCTION_0077( var73 ) == 1 ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_007A( var73 );
+            return;
+        }
+    }
+
+    for ( int i = 0; i < 3; i++ )
+    {
+        if ( AI_FUNCTION_006E( i ) && AI_FUNCTION_0070( i ) )
+        {
+            var73 = AI_FUNCTION_0081( i );
+
+            if ( var73 != -1 )
+            {
+                if ( AI_FUNCTION_0009( 2 ) || AI_FUNCTION_00E2( i ) != -1 )
+                {
+                    var72 = AI_FUNCTION_0086( var73, i, 1 );
+                }
+                else
+                {
+                    var72 = AI_FUNCTION_0086( var73, i, 0 );
+                }
+
+                AI_ACT_SKILL( var72 );
+                AI_FUNCTION_007A( var73 );
+                return;
+            }
+        }
+    }
+
+    var73 = AI_FUNCTION_007C();
+    
+    if ( AI_FUNCTION_0009( 1 ) == 1 )
+    {
+        var72 = AI_FUNCTION_0088( var73, 1, 0 );
+    }
+    else 
+    {
+        var72 = AI_FUNCTION_0088( var73, 0, 0 );
+    }
+
+    if ( var72 == 0 && AI_FUNCTION_0009( 1 ) )
+    {
+        var72 = AI_FUNCTION_0088( var73, -1, 0 );
+    }
+    
+    if ( !AI_FUNCTION_00B6() )
+    {
+        if ( var72 != -1 )
+        {
+            var74 = AI_FUNCTION_00DF( var72 );
+            var70 = AI_FUNCTION_00E2( var74 );
+                
+            if ( ( var70 != -1 ) /* || ( AI_FUNCTION_0009( 1 ) == 1 ) */ )
+            {
+                var72 = AI_FUNCTION_0088( var73, 1, 0 );
+                AI_ACT_SKILL( var72 );
+                AI_FUNCTION_007A( var73 );
+                return;
+            }
+            else 
+            {
+                AI_ACT_SKILL( var72 );
+                AI_FUNCTION_007A( var73 );
+                return;
+            }
+        }
+        else 
+        {
+            var69 = AI_FUNCTION_0090();
+            var73 = AI_FUNCTION_0083( var69 );
+            
+            if ( var73 != -1 )
+            {
+                AI_ACT_WEAPON();
+                AI_FUNCTION_007A( var73 );
+                return;
+            }
+        }
+    }
+
+    var69 = AI_FUNCTION_0090();
+    if ( DEBUFF_ENEMIES_CHECK( SpecialEffects.Tetrakarn ) )
+    {
+        if ( !AI_CHK_HP_PERCENT( 60 ) || AI_FUNCTION_0015( var69 ) || AI_FUNCTION_0016( var69 ) || AI_FUNCTION_0017( var69 ) || ( AI_FUNCTION_00FA( var69 ) && !AI_CHK_HP_PERCENT( 40 ) ) )
+        {
+            AI_ACT_WEAPON();
+            AI_FUNCTION_00D3( SpecialEffects.Tetrakarn );
+            return;
+        }
+    }
+    
+    AI_ACT_WAIT();
+    AI_TAR_RND();
+    return;
+}
+
+void POWERDOOR_FA()
+{
+    int var0;
+    int var1;
+
+    var0 = AI_FUNCTION_0090();
+    var1 = AI_FUNCTION_007C();
+
+    if ( AI_FUNCTION_009D( var1, var0 ) && AI_FUNCTION_0077( var1 ) )
+    {
+        AI_ACT_WEAPON();
+        AI_FUNCTION_007A( var1 );
+        return;
+    }
+
+    var1 = AI_FUNCTION_007E( var0 );
+
+    if ( var1 != -1 )
+    {
+        if ( AI_FUNCTION_0070( 1 ) )
+        {
+            AI_ACT_WEAPON();
+
+            if ( AI_FUNCTION_006C( BattleSkill.GodsHand ) )
+            {
+                AI_ACT_SKILL( BattleSkill.GodsHand );
+            }
+
+            AI_FUNCTION_007A( var1 );
+            return;
+        }
+    }
+
+    var1 = AI_FUNCTION_007F( var0 );
+
+    if ( var1 != -1 )
+    {
+        if ( AI_FUNCTION_0070( 1 ) )
+        {
+            AI_ACT_WEAPON();
+
+            if ( AI_FUNCTION_006C( BattleSkill.GodsHand ) )
+            {
+                AI_ACT_SKILL( BattleSkill.GodsHand );
+            }
+
+            AI_FUNCTION_007A( var1 );
+            return;
+        }
+    }
+
+    var1 = AI_FUNCTION_007C();
+
+    if ( ( AI_FUNCTION_009D( var1, 1 ) ) && AI_FUNCTION_009D( var1, 0 ) == 0 )
+    {
+        if ( AI_FUNCTION_0070( Affinity.Strike ) )
+        {
+            AI_ACT_WEAPON();
+
+            if ( AI_FUNCTION_006C( BattleSkill.GodsHand ) )
+            {
+                AI_ACT_SKILL( BattleSkill.GodsHand );
+            }
+
+            AI_FUNCTION_007A( var1 );
+            return;
+        }
+    }
+
+    if ( DEBUFF_ENEMIES_CHECK( 0x00100000 ) && AI_FUNCTION_0070( 6 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.Garudyne );
+        AI_FUNCTION_007A( var1 );
+        return;
+    }
+    else if ( DEBUFF_ENEMIES_CHECK( 0x00080000 ) && AI_FUNCTION_0070( 4 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.Bufudyne );
+        AI_FUNCTION_007A( var1 );
+        return;
+    }
+
+    if ( BUFF_SELF_CHECK( SpecialEffects.PowerCharge ) == 0 && AI_FUNCTION_006C( BattleSkill.PowerCharge ) )
+    {
+        AI_ACT_SKILL( BattleSkill.PowerCharge );
+        AI_TAR_RND();
+        return;
+    }
+    else if ( BUFF_SELF_CHECK( SpecialEffects.MindCharge ) == 0 && AI_FUNCTION_006C( BattleSkill.MindCharge ) )
+    {
+        AI_ACT_SKILL( BattleSkill.MindCharge );
+        AI_TAR_RND();
+        return;
+    }
+    
+    if ( ( AI_FUNCTION_009D( var1, var0 ) == 1 ) )
+    {
+        AI_ACT_WEAPON();
+        AI_FUNCTION_007A( var1 );
+        return;
+    }    
+
+    if ( AI_FUNCTION_0001( 50 ) && AI_FUNCTION_006C( 76 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.SpiritDrain );
+        AI_FUNCTION_002F();
+        return;
+    }
+
+    AI_ACT_WAIT();
+    AI_TAR_RND();
+    return;
+}
+
+void POWERDOOR_HP()
+{
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+
+    var0 = AI_FUNCTION_00A0( 1, 40, 0 );
+
+    if ( var0 != -1 && ( ( !AI_FUNCTION_0070( 4 ) ) || ( AI_FUNCTION_0070( 4 ) && !BUFF_SELF_CHECK( SpecialEffects.MindCharge ) && !DEBUFF_ENEMIES_CHECK( 0x00080000 ) ) ) )
+    {
+        if ( AI_FUNCTION_0078( var0, 17 ) )
+        {
+            if ( AI_FUNCTION_00DC( 60 ) >= 2 )
+            {
+                var1 = AI_FUNCTION_0086( var0, 17, 0);
+            }
+            else
+            {
+               var1 = AI_FUNCTION_0086( var0, 17, 1 );
+            }
+
+            AI_ACT_SKILL( var1 );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+    }
+
+    var0 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+
+    if ( var0 != -1 )
+    {
+        if ( AI_FUNCTION_0078( var0, 17 ) )
+        {
+            AI_ACT_SKILL( AI_FUNCTION_0086( var0, 17, 0 ) );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( 1290 ) > 0 )
+        {
+            AI_FUNCTION_0068( 1290 );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.RevivalBead ) > 0 )
+        {
+            AI_FUNCTION_0068( Items.RevivalBead );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+    }
+
+    var0 = AI_FUNCTION_007C();
+
+    if ( !DEBUFF_ENEMIES_CHECK( 0x00100000 ) && AI_FUNCTION_006C( BattleSkill.WindBreak ) && AI_CHK_ENEMY_STATUS( StatusEffects.Downed ) )
+    {
+        AI_ACT_SKILL( BattleSkill.WindBreak );
+        AI_FUNCTION_007A( var0 );
+        return;
+    }
+    else if ( !DEBUFF_ENEMIES_CHECK( 0x00080000 ) && AI_FUNCTION_006C( BattleSkill.IceBreak ) && AI_CHK_ENEMY_STATUS( StatusEffects.Downed ) )
+    {
+        AI_ACT_SKILL( BattleSkill.IceBreak );
+        AI_FUNCTION_007A( var0 );
+        return;
+    }
+
+    POWERDOOR_FA();
+}
+
+void ENDURANCEDOOR_HP()
+{
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+
+    if ( AI_FUNCTION_006C( BattleSkill.Masukunda ) && DEBUFF_ENEMIES_CHECK( SpecialEffects.HitUpDebuff ) == 0 )
+    {
+        AI_ACT_SKILL( BattleSkill.Masukunda );
+        AI_TAR_RND();
+        return;
+    }
+    else if ( AI_FUNCTION_006C( BattleSkill.Marakunda ) && DEBUFF_ENEMIES_CHECK( SpecialEffects.DefenseDebuff ) == 0 )
+    {
+        AI_ACT_SKILL( BattleSkill.Marakunda );
+        AI_TAR_RND();
+        return;
+    }
+
+    if ( AI_FUNCTION_006E( Affinity.Wind ) && AI_FUNCTION_0070( Affinity.Wind ) )
+    {
+        var0 = AI_FUNCTION_007E( Affinity.Wind );
+
+        if ( var0 != -1 )
+        {
+            if ( AI_FUNCTION_0009( 2 ) )
+            {
+                var1 = AI_FUNCTION_0086( var0, Affinity.Wind, 1 );
+            }
+            else
+            {
+                var1 = AI_FUNCTION_0086( var0, Affinity.Wind, 0 );
+            }
+
+            AI_ACT_SKILL( var1 );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+    }
+
+    var0 = GET_ITEM_NUM( Items.MedicalPowder );
+    var1 = GET_ITEM_NUM( Items.UmugiWater );
+
+    var2 = AI_FUNCTION_00A0( 1, 40, 0 );
+    
+    if ( var2 != -1 )
+    {
+        if ( AI_FUNCTION_0075( AI_FUNCTION_007B( 0, PartyMember.Protagonist ), 40 ) )
+        {
+            var2 = AI_FUNCTION_007B( 0, PartyMember.Protagonist );
+        }
+
+        var3 = AI_FUNCTION_00DC( 70 );
+
+        if ( AI_FUNCTION_0078( var2, 17 ) )
+        {
+            if ( var3 >= 2 )
+            {
+                var4 = AI_FUNCTION_0086( var2, 17, 0 );
+            }
+            else
+            {
+                var4 = AI_FUNCTION_0086( var2, 17, 1 );
+            }
+
+            AI_ACT_SKILL( var4 );
+            AI_FUNCTION_007A( var2 );
+            return;
+        }
+        else 
+        {
+            if ( var3 >= 2 && var1 > 0 )
+            {            
+                var4 = Items.UmugiWater;        
+                AI_FUNCTION_0068( var4 );
+                AI_FUNCTION_007A( var2 );
+                return;
+            }
+            else if ( var0 > 0 )
+            {
+                var4 = Items.MedicalPowder;        
+                AI_FUNCTION_0068( var4 );
+                AI_FUNCTION_007A( var2 );
+                return;
+            }
+        }
+    }
+
+    var0 = AI_FUNCTION_00A0( 1, 100, StatusEffects.Charm );
+
+    if ( var0 != -1 )
+    {
+        if ( AI_FUNCTION_006C( BattleSkill.Charmdi ) )
+        {
+            AI_ACT_SKILL( BattleSkill.Charmdi );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.DisCharm ) > 0 )
+        {
+            AI_FUNCTION_0068( Items.DisCharm );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+    }
+
+    var0 = AI_FUNCTION_00A0( 0, 0, StatusEffects.Unconscious );
+
+    if ( var0 != -1 )
+    {
+        if ( AI_FUNCTION_0078( var0, 17 ) )
+        {
+            var1 = AI_FUNCTION_0086( var0, 17, 0 );
+            AI_ACT_SKILL( var1 );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( 1290 ) > 0 )
+        {
+            AI_FUNCTION_0068( 1290 );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+        else if ( GET_ITEM_NUM( Items.RevivalBead ) > 0 )
+        {
+            AI_FUNCTION_0068( Items.RevivalBead );
+            AI_FUNCTION_007A( var0 );
+            return;
+        }
+    }
+
+    AI_TIKARA_DASHIKIRE();
+}
+
+void POWERDOOR_SP()
+{
+    int var0;
+    int var1;
+
+    var0 = AI_FUNCTION_0090();
+    var1 = AI_FUNCTION_007C();
+
+    if ( AI_FUNCTION_009D( var1, var0 ) && AI_FUNCTION_0077( var1 ) )
+    {
+        AI_ACT_WEAPON();
+        AI_FUNCTION_007A( var1 );
+        return;
+    }
+
+    if ( AI_FUNCTION_0001( 30 ) && AI_FUNCTION_006C( 76 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.SpiritDrain );
+        AI_FUNCTION_002F();
+        return;
+    }
+
+    var1 = AI_FUNCTION_007E( var0 );
+
+    if ( var1 != -1 )
+    {
+        if ( AI_FUNCTION_0070( 1 ) )
+        {
+            AI_ACT_WEAPON();
+
+            if ( AI_FUNCTION_006C( BattleSkill.GodsHand ) )
+            {
+                AI_ACT_SKILL( BattleSkill.GodsHand );
+            }
+
+            AI_FUNCTION_007A( var1 );
+            return;
+        }
+    }
+
+    var1 = AI_FUNCTION_007F( var0 );
+
+    if ( var1 != -1 )
+    {
+        if ( AI_FUNCTION_0070( 1 ) )
+        {
+            AI_ACT_WEAPON();
+
+            if ( AI_FUNCTION_006C( BattleSkill.GodsHand ) )
+            {
+                AI_ACT_SKILL( BattleSkill.GodsHand );
+            }
+
+            AI_FUNCTION_007A( var1 );
+            return;
+        }
+    }
+
+    var1 = AI_FUNCTION_007C();
+
+    if ( ( AI_FUNCTION_009D( var1, 1 ) ) && AI_FUNCTION_009D( var1, 0 ) == 0 )
+    {
+        if ( AI_FUNCTION_0070( Affinity.Strike ) )
+        {
+            AI_ACT_WEAPON();
+
+            if ( AI_FUNCTION_006C( BattleSkill.GodsHand ) )
+            {
+                AI_ACT_SKILL( BattleSkill.GodsHand );
+            }
+
+            AI_FUNCTION_007A( var1 );
+            return;
+        }
+    }
+    
+    if ( ( AI_FUNCTION_009D( var1, var0 ) == 1 ) )
+    {
+        AI_ACT_WEAPON();
+        AI_FUNCTION_007A( var1 );
+        return;
+    }    
+
+    if ( AI_FUNCTION_0001( 60 ) && AI_FUNCTION_006C( 76 ) )
+    {
+        AI_ACT_SKILL( BattleSkill.SpiritDrain );
+        AI_FUNCTION_002F();
+        return;
+    }
+
+    AI_ACT_WAIT();
+    AI_TAR_RND();
+    return;    
+}
+
+// Procedure Index: 6
+void AI_PC_002_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 7
+void AI_PC_002_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 8
+void AI_PC_002_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 9
+void AI_PC_002_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 10
+void AI_PC_002_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 11
+void AI_PC_003_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 12
+void AI_PC_003_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 13
+void AI_PC_003_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 14
+void AI_PC_003_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 15
+void AI_PC_003_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 16
+void AI_PC_003_006()
+{
+    AI_ORGIA();
+}
+
+
+// Procedure Index: 17
+void AI_PC_004_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 18
+void AI_PC_004_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 19
+void AI_PC_004_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 20
+void AI_PC_004_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 21
+void AI_PC_004_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 22
+void AI_PC_005_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 23
+void AI_PC_005_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 24
+void AI_PC_005_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 25
+void AI_PC_005_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 26
+void AI_PC_005_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 27
+void AI_PC_007_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 28
+void AI_PC_007_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 29
+void AI_PC_007_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 30
+void AI_PC_007_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 31
+void AI_PC_007_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 32
+void AI_PC_008_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 33
+void AI_PC_008_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 34
+void AI_PC_008_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 35
+void AI_PC_008_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 36
+void AI_PC_008_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 37
+void AI_PC_009_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 38
+void AI_PC_009_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 39
+void AI_PC_009_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 40
+void AI_PC_009_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 41
+void AI_PC_009_005()
+{
+    main_AI_escape();
+}
+
+
+// Procedure Index: 42
+void AI_PC_00A_000()
+{
+    AI_OMAKASE();
+}
+
+
+// Procedure Index: 43
+void AI_PC_00A_001()
+{
+    AI_TIKARA_DASHIKIRE();
+}
+
+
+// Procedure Index: 44
+void AI_PC_00A_002()
+{
+    AI_SP_ONZON();
+}
+
+
+// Procedure Index: 45
+void AI_PC_00A_003()
+{
+    AI_TAIRYOKU();
+}
+
+
+// Procedure Index: 46
+void AI_PC_00A_005()
+{
+    main_AI_escape();
+}

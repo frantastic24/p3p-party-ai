@@ -1,0 +1,96 @@
+0068 = Use Item
+
+0001 = Check Self SP
+
+0008 = Number of Alive Allies
+0009 = Number of Alive Enemies
+
+000A = Return if User is Inflicted with X Status
+000B = Return if Any Ally is Inflicted with X Status
+000C = Return if Any Enemy is Inflicted with X Status
+000D = Return if All Enemies are Affected by X Ailment?
+
+0012 = Return if Can Escape from Battle
+
+0015 = Return if User Reflects(?) Element
+0016 = Return if User Nulls(?) Element
+0017 = Return if User Absorbs(?) Element
+0018 = Return if User is Weak to X Element
+001A = Return if Any Enemy Reflects X Element
+001C = Return if Any Enemy Nulls X Element
+001E = Return if Any Enemy Absorbs X Element
+0020 = Return if Any Enemy is Weak to X Element
+
+005D = Return if ID is Inflicted with X Status 
+
+0064 = Return if ID has used Skill
+0069 = Return if User is ID (value1 is 0 = Party | 1 = Enemy, value2 is ID)
+
+0075 = Return if X's HP% is lower than Y
+0077 = Return if Enemy can be 1-shot
+007B = Return Party Member
+007C = Return Enemy with Lowest HP
+007D = Return Dizzy > Downed > Standing targets with X Weakness only, if none return -1 (maybe target with lowest hp?)
+007E = Return Standing targets with X Weakness only, else return -1
+007F = Return Downed with X Weakness only, else return -1
+0080 = Return Downed Dizzy targets with X Weakness only, else return -1
+0081 = Same as 007E? Seems to work with Light/Dark
+0082 = Same as 0080?
+0084 = Return Standing Enemy that can be damaged by X Element, if none return -1
+0085 = Return Downed Enemy that can be damaged by X Element
+0089 = Return Position from Assign Target, returns a random position
+008A = Return Weakness from ID?
+008B = Return Same Target as Player (Same Target Tactic)
+009B = Return Ally with Lowest HP
+00A0 = Return Ally with less than X% HP and Ailment, if none return -1
+00A1 = Return if ID has Less than X%HP, else return -1
+00A2 = Return if ID has Less than X%SP, else return -1
+00DC = Return Number of Allies below X HP%
+00DF = Return Element of Skill ID
+00E0 = Maybe same as 0085?
+
+006D = Return Any Enemy with X Element Weakness, else return -1
+006E = Return Standing Enemy Weak to X, else return -1
+006F = Return Downed Enemy Weak to X, else return -1
+
+0070 = Does User have X Element
+0090 = Return User Weapon Element
+009D = Can X Enemy be damaged by Y Element?
+
+007A = Set Target
+0086 = Search Skill by Target, Element, Scope (1 = Single, 0 = Multi)
+00D3 = Set Target Affected by X Effect
+00D4 = Set Target NOT affected by X Effect
+
+006C = Does User Have X Skill
+
+00BC = Number of Allies Affected with X Buff
+00BE = Number of Allies Affected with X Status?
+00BF = Number of Enemies Affected with X Buff
+00C1 = Return if Ally Not Affected with X Buff, else return -1
+00C2 = Return if Enemy Not Affected with X Buff, else return -1
+
+00C4 = Return if current battle a Boss?
+
+00DA = Does ID have Skill
+
+00A9 = Does Enemy ID have Element? 
+00B9 = Something that calculates turn count?
+00BA = Gives extra turn?
+00E3 = Does Ally ID have Element?
+00E9 = "Changed Persona" popup
+
+00EC = Supposed to change tactics? Doesn't work :(
+00ED = Return Ally Tactic
+00EE = Return current Position
+
+00F3 = Return position of next turn
+00F4 = Return User Tactic
+00F5 = Return Number of Alive Allies
+00F6 = Return Number of Alive Enemies
+00F7 = Return Number of Enemies with X Ailment?
+00F8 = Return Highest Damaging move?
+
+00FA = User Resist Element?
+
+00FD = Returns if Position has Skill? Works with passives
